@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jain Connect 360 Degree - Connecting Every Jain</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Gujarati', 'Noto Sans Devanagari', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-amber-50/60 via-slate-50 to-slate-100 text-slate-900 min-h-screen py-6 sm:py-10 px-4 antialiased">
+  <div class="max-w-xl mx-auto">
+    
+    <!-- Top Bar: Language Switcher -->
+    <div class="flex justify-end mb-4">
+      <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-xs p-1 rounded-2xl border border-amber-200/80 shadow-xs text-xs font-semibold">
+        <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="px-3 py-1.5 rounded-xl bg-amber-600 text-white shadow-xs transition">English</button>
+        <button type="button" onclick="setLanguage('gu')" id="lang-btn-gu" class="px-3 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition">ગુજરાતી</button>
+        <button type="button" onclick="setLanguage('hi')" id="lang-btn-hi" class="px-3 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition">हिंदी</button>
+      </div>
+    </div>
+
+    <!-- Top Branding & Emblem -->
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-3xl bg-gradient-to-tr from-amber-600 to-amber-500 text-white shadow-lg shadow-amber-500/25 mb-3 border-2 border-amber-200">
+        <!-- Community Connection Icon -->
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="2" x2="12" y2="6"></line>
+          <line x1="12" y1="18" x2="12" y2="22"></line>
+          <line x1="2" y1="12" x2="6" y2="12"></line>
+          <line x1="18" y1="12" x2="22" y2="12"></line>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+        </svg>
+      </div>
+      <h1 id="txt-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+        Jain Connect 360 Degree
+      </h1>
+      <p id="txt-subtitle" class="text-xs sm:text-sm font-semibold text-amber-700 mt-1">
+        Connecting Every Jain
+      </p>
+      <p id="txt-desc" class="mt-1 text-xs text-slate-500 max-w-sm mx-auto">
+        Please fill in your basic details below to register and connect with the community directory.
+      </p>
+    </div>
+
+    <!-- Form Container -->
+    <div id="formCard" class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 sm:p-8">
+      <form id="jainForm" onsubmit="handleFormSubmit(event)" novalidate class="space-y-4">
+        
+        <!-- 1. Full Name -->
+        <div>
+          <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+            <span id="lbl-name">Full Name</span> <span class="text-rose-500">*</span>
+          </label>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="fullName" 
+              placeholder="e.g. Rameshchandra M. Shah" 
+              oninput="validateName()"
+              class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+            />
+            <span id="nameIcon" class="absolute right-3.5 top-3 hidden"></span>
+          </div>
+          <p id="nameError" class="text-xs text-rose-500 mt-1 hidden"></p>
+        </div>
+
+        <!-- 2. Calling Number & WhatsApp Number -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Calling Number -->
+          <div>
+            <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+              <span id="lbl-phone">Contact Number (Calling)</span> <span class="text-rose-500">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="tel" 
+                id="phone" 
+                placeholder="e.g. 9876543210" 
+                oninput="handlePhoneInput()"
+                class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+              />
+              <span id="phoneIcon" class="absolute right-3.5 top-3 hidden"></span>
+            </div>
+            <p id="phoneError" class="text-xs text-rose-500 mt-1 hidden"></p>
+          </div>
+
+          <!-- WhatsApp Number -->
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label for="whatsapp" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                <span id="lbl-whatsapp">WhatsApp Number</span> <span class="text-rose-500">*</span>
+              </label>
+              <label class="flex items-center gap-1 text-[11px] text-amber-700 font-semibold cursor-pointer select-none">
+                <input type="checkbox" id="sameNumber" onchange="syncWhatsApp()" class="rounded border-slate-300 text-amber-600 focus:ring-amber-500 cursor-pointer" />
+                <span id="lbl-same">Same as Number</span>
+              </label>
+            </div>
+            <div class="relative">
+              <input 
+                type="tel" 
+                id="whatsapp" 
+                placeholder="e.g. 9876543210" 
+                oninput="validateWhatsApp()"
+                class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+              />
+              <span id="whatsappIcon" class="absolute right-3.5 top-3 hidden"></span>
+            </div>
+            <p id="whatsappError" class="text-xs text-rose-500 mt-1 hidden"></p>
+          </div>
+        </div>
+
+        <!-- 3. Jain Sampradaya / Panth (Dropdown) -->
+        <div>
+          <label for="sampradayaSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+            <span id="lbl-sampradaya">Jain Sampradaya / Panth</span> <span class="text-rose-500">*</span>
+          </label>
+          <select 
+            id="sampradayaSelect" 
+            onchange="validateSampradaya()"
+            class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+          >
+            <!-- Dynamic options via JS -->
+          </select>
+          <p id="sampradayaError" class="text-xs text-rose-500 mt-1 hidden"></p>
+        </div>
+
+        <!-- 4. Name of Sammaj (Dropdown with manual entry fallback) -->
+        <div>
+          <label for="sammajSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+            <span id="lbl-sammaj">Name of Sammaj</span> <span class="text-rose-500">*</span>
+          </label>
+          <select 
+            id="sammajSelect" 
+            onchange="handleSammajSelection()"
+            class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+          >
+            <!-- Dynamic options via JS -->
+          </select>
+          <p id="sammajSelectError" class="text-xs text-rose-500 mt-1 hidden"></p>
+        </div>
+
+        <!-- Custom Sammaj Name Entry (Shows if user chooses Other/Not Found) -->
+        <div id="customSammajBox" class="hidden p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-1">
+          <label class="block text-xs font-bold uppercase tracking-wider text-amber-800">
+            <span id="lbl-custom-sammaj">Enter Your Sammaj Name</span> <span class="text-rose-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="customSammaj" 
+            placeholder="e.g. Shrimali, Kutchi Dasa Oswal, Porwal..." 
+            oninput="validateCustomSammaj()"
+            class="w-full px-3.5 py-2 bg-white border border-amber-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+          />
+          <p id="customSammajError" class="text-xs text-rose-500 hidden"></p>
+        </div>
+
+        <!-- 5. State & City (Indian States & Cities Dropdown) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- State -->
+          <div>
+            <label for="stateSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+              <span id="lbl-state">State</span> <span class="text-rose-500">*</span>
+            </label>
+            <select 
+              id="stateSelect" 
+              onchange="handleStateChange()"
+              class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+            >
+              <!-- Dynamic Indian states -->
+            </select>
+            <p id="stateError" class="text-xs text-rose-500 mt-1 hidden"></p>
+          </div>
+
+          <!-- City -->
+          <div>
+            <label for="citySelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+              <span id="lbl-city">City / Town</span> <span class="text-rose-500">*</span>
+            </label>
+            <select 
+              id="citySelect" 
+              onchange="handleCityChange()"
+              class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+            >
+              <!-- Dynamic cities -->
+            </select>
+            <p id="cityError" class="text-xs text-rose-500 mt-1 hidden"></p>
+          </div>
+        </div>
+
+        <!-- Custom City Entry (if "Other" chosen) -->
+        <div id="customCityBox" class="hidden p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-1">
+          <label class="block text-xs font-bold uppercase tracking-wider text-amber-800">
+            <span id="lbl-custom-city">Enter City / Village / Native Place</span> <span class="text-rose-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="customCity" 
+            placeholder="Type your city or village name..." 
+            oninput="validateCustomCity()"
+            class="w-full px-3.5 py-2 bg-white border border-amber-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+          />
+          <p id="customCityError" class="text-xs text-rose-500 hidden"></p>
+        </div>
+
+        <!-- 6. Business Name / Occupation -->
+        <div>
+          <label for="businessName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+            <span id="lbl-business">Business Name / Occupation (What do you do?)</span> <span class="text-rose-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="businessName" 
+            placeholder="e.g. Mahavir Textiles / Diamond Merchant / Software Engineer / Student" 
+            oninput="validateBusiness()"
+            class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+          />
+          <p id="businessError" class="text-xs text-rose-500 mt-1 hidden"></p>
+        </div>
+
+        <!-- Error Alert -->
+        <div id="statusAlert" class="hidden p-3.5 rounded-xl text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200"></div>
+
+        <!-- Submit Button -->
+        <div class="pt-3">
+          <button 
+            type="submit" 
+            id="submitButton"
+            class="w-full py-3.5 bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-bold text-sm rounded-xl shadow-lg shadow-amber-500/25 transition cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
+          >
+            <span id="submitSpinner" class="hidden animate-spin">
+              <i data-lucide="loader-2" class="w-4 h-4"></i>
+            </span>
+            <span id="submitText">Submit Details</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Thank You Confirmation Screen (Hidden until submitted) -->
+    <div id="successCard" class="hidden bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 text-center space-y-4">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
+        <i data-lucide="check-check" class="w-8 h-8"></i>
+      </div>
+      <div>
+        <h2 id="txt-success-title" class="text-2xl font-bold text-slate-900">Jai Jinendra!</h2>
+        <p id="txt-success-subtitle" class="text-sm font-semibold text-amber-700 mt-1">Registration Successful</p>
+      </div>
+      <p id="txt-success-msg" class="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
+        Your information has been verified and registered with <strong>Jain Connect 360 Degree</strong>. Thank you for connecting!
+      </p>
+      <div class="pt-4">
+        <button 
+          onclick="resetForNewEntry()" 
+          id="btn-submit-another"
+          class="px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition cursor-pointer"
+        >
+          Submit Another Entry
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-6 text-center text-xs text-slate-400">
+      Jain Connect 360 Degree • Connecting Every Jain
+    </div>
+
+  </div>
+
+  <script>
+    // ========================================================
+    // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE:
+    // ========================================================
+    const GOOGLE_WEBHOOK_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+    // Supported Languages Dictionary
+    const translations = {
+      en: {
+        title: "Jain Connect 360 Degree",
+        subtitle: "Connecting Every Jain",
+        desc: "Please fill in your basic details below to register and connect with the community directory.",
+        name: "Full Name",
+        name_placeholder: "e.g. Rameshchandra M. Shah",
+        phone: "Contact Number (Calling)",
+        whatsapp: "WhatsApp Number",
+        same: "Same as Number",
+        sampradaya: "Jain Sampradaya / Panth",
+        sampradaya_select: "Select Sampradaya / Panth...",
+        sammaj: "Name of Sammaj",
+        sammaj_select: "Select your Sammaj...",
+        sammaj_other: "Not found in list? Enter manually...",
+        custom_sammaj: "Enter Your Sammaj Name",
+        state: "State",
+        state_select: "Select State...",
+        city: "City / Town",
+        city_select: "Select City...",
+        custom_city: "Enter City / Village / Native Place",
+        business: "Business Name / Occupation (What do you do?)",
+        business_placeholder: "e.g. Mahavir Textiles / Diamond Merchant / Software Engineer / Student",
+        submit: "Submit Details",
+        submitting: "Submitting...",
+        err_all: "Please complete all highlighted fields correctly before submitting.",
+        err_name: "Please enter your full name (minimum 2 characters).",
+        err_phone: "Please enter a valid 10-digit mobile number.",
+        err_wa: "Please enter a valid 10-digit WhatsApp number.",
+        err_sampradaya: "Please select your Jain Sampradaya / Panth.",
+        err_sammaj: "Please select your Sammaj or type it manually.",
+        err_custom_sammaj: "Please enter your Sammaj name.",
+        err_state: "Please select your state.",
+        err_city: "Please select your city or enter manually.",
+        err_custom_city: "Please enter your city / village name.",
+        err_business: "Please specify your business name or occupation.",
+        success_title: "Jai Jinendra!",
+        success_subtitle: "Registration Successful",
+        success_msg: "Your information has been verified and registered with <strong>Jain Connect 360 Degree</strong>. Thank you for connecting!",
+        submit_another: "Submit Another Entry"
+      },
+      gu: {
+        title: "જૈન કનેક્ટ 360 ડિગ્રી",
+        subtitle: "દરેક જૈનને જોડતો સેતુ",
+        desc: "સમુદાય ડિરેક્ટરી સાથે જોડાવા માટે કૃપા કરીને નીચે તમારી પ્રાથમિક વિગતો ભરો.",
+        name: "પૂરું નામ",
+        name_placeholder: "દા.ત. રમેશચંદ્ર એમ. શાહ",
+        phone: "સંપર્ક નંબર (કોલિંગ)",
+        whatsapp: "વોટ્સએપ નંબર",
+        same: "નંબર સમાન જ છે",
+        sampradaya: "જૈન સંપ્રદાય / પંથ",
+        sampradaya_select: "સંપ્રદાય / પંથ પસંદ કરો...",
+        sammaj: "સમાજનું નામ",
+        sammaj_select: "તમારો સમાજ પસંદ કરો...",
+        sammaj_other: "યાદીમાં નથી? જાતે નામ લખો...",
+        custom_sammaj: "તમારા સમાજનું નામ લખો",
+        state: "રાજ્ય",
+        state_select: "રાજ્ય પસંદ કરો...",
+        city: "શહેર / ગામ",
+        city_select: "શહેર પસંદ કરો...",
+        custom_city: "શહેર / ગામ / વતનનું નામ લખો",
+        business: "વ્યવસાય / રોજગાર (તમે શું કામ કરો છો?)",
+        business_placeholder: "દા.ત. મહાવીર ટેક્સટાઇલ / હીરા વેપાર / સોફ્ટવેર એન્જિનિયર / વિદ્યાર્થી",
+        submit: "વિગતો સબમિટ કરો",
+        submitting: "સબમિટ થઈ રહ્યું છે...",
+        err_all: "કૃપા કરીને સબમિટ કરતાં પહેલાં બધી જરૂરી વિગતો યોગ્ય રીતે ભરો.",
+        err_name: "કૃપા કરીને પૂરું નામ લખો (ઓછામાં ઓછા 2 અક્ષરો).",
+        err_phone: "કૃપા કરીને માન્ય 10 અંકનો મોબાઈલ નંબર દાખલ કરો.",
+        err_wa: "કૃપા કરીને માન્ય 10 અંકનો વોટ્સએપ નંબર દાખલ કરો.",
+        err_sampradaya: "કૃપા કરીને તમારો જૈન સંપ્રદાય / પંથ પસંદ કરો.",
+        err_sammaj: "કૃપા કરીને તમારો સમાજ પસંદ કરો અથવા જાતે લખો.",
+        err_custom_sammaj: "કૃપા કરીને તમારા સમાજનું નામ લખો.",
+        err_state: "કૃપા કરીને તમારું રાજ્ય પસંદ કરો.",
+        err_city: "કૃપા કરીને તમારું શહેર પસંદ કરો અથવા જાતે લખો.",
+        err_custom_city: "કૃપા કરીને શહેર અથવા ગામનું નામ લખો.",
+        err_business: "કૃપા કરીને તમારો વ્યવસાય કે કામકાજ જણાવો.",
+        success_title: "જય જિનેન્દ્ર!",
+        success_subtitle: "નોંધણી સફળ થઈ છે",
+        success_msg: "તમારી વિગતો <strong>જૈન કનેક્ટ 360 ડિગ્રી</strong>માં સુરક્ષિત રીતે નોંધાઈ ગઈ છે. જોડાવા બદલ ખૂબ ખૂબ આભાર!",
+        submit_another: "બીજી એન્ટ્રી સબમિટ કરો"
+      },
+      hi: {
+        title: "जैन कनेक्ट 360 डिग्री",
+        subtitle: "हर जैन को जोड़ने वाला मंच",
+        desc: "समुदाय डायरेक्टरी से जुड़ने के लिए कृपया नीचे अपना प्राथमिक विवरण भरें।",
+        name: "पूरा नाम",
+        name_placeholder: "उदा. रमेशचंद्र एम. शाह",
+        phone: "संपर्क नंबर (कॉलिंग)",
+        whatsapp: "व्हाट्सएप नंबर",
+        same: "नंबर समान ही है",
+        sampradaya: "जैन सम्प्रदाय / पंथ",
+        sampradaya_select: "सम्प्रदाय / पंथ चुनें...",
+        sammaj: "समाज का नाम",
+        sammaj_select: "अपना समाज चुनें...",
+        sammaj_other: "सूची में नहीं है? खुद लिखें...",
+        custom_sammaj: "अपने समाज का नाम लिखें",
+        state: "राज्य",
+        state_select: "राज्य चुनें...",
+        city: "शहर / कस्बा",
+        city_select: "शहर चुनें...",
+        custom_city: "शहर / गाँव / मूल स्थान का नाम लिखें",
+        business: "व्यवसाय / कार्य (आप क्या करते हैं?)",
+        business_placeholder: "उदा. महावीर टेक्सटाइल / कपड़ा व्यापार / ज्वेलरी / सॉफ्टवेयर इंजीनियर / छात्र",
+        submit: "विवरण सबमिट करें",
+        submitting: "सबमिट हो रहा है...",
+        err_all: "कृपया सबमिट करने से पहले सभी आवश्यक जानकारी सही ढंग से भरें।",
+        err_name: "कृपया पूरा नाम लिखें (कम से कम 2 अक्षर)।",
+        err_phone: "कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।",
+        err_wa: "कृपया सही 10 अंकों का व्हाट्सएप नंबर दर्ज करें।",
+        err_sampradaya: "कृपया अपना जैन सम्प्रदाय / पंथ चुनें।",
+        err_sammaj: "कृपया अपना समाज चुनें या खुद लिखें।",
+        err_custom_sammaj: "कृपया अपने समाज का नाम लिखें।",
+        err_state: "कृपया अपना राज्य चुनें।",
+        err_city: "कृपया अपना शहर चुनें या खुद लिखें।",
+        err_custom_city: "कृपया शहर या गाँव का नाम लिखें।",
+        err_business: "कृपया अपना व्यवसाय या कार्यक्षेत्र लिखें।",
+        success_title: "जय जिनेन्द्र!",
+        success_subtitle: "पंजीकरण सफल रहा",
+        success_msg: "आपकी जानकारी <strong>जैन कनेक्ट 360 डिग्री</strong> में सुरक्षित रूप से दर्ज कर ली गई है। जुड़ने के लिए धन्यवाद!",
+        submit_another: "दूसरा विवरण सबमिट करें"
+      }
+    };
+
+    let currentLang = 'en';
+
+    // Sampradaya / Panth list
+    const sampradayaList = [
+      { id: "Shwetambar Murtipujak", en: "Shwetambar Murtipujak", gu: "શ્વેતાંબર મૂર્તિપૂજક", hi: "श्वेतांबर मूर्तिपूजक" },
+      { id: "Digambar", en: "Digambar", gu: "દિગંબર", hi: "दिगंबर" },
+      { id: "Shwetambar Sthanakvasi", en: "Shwetambar Sthanakvasi", gu: "શ્વેતાંબર સ્થાનકવાસી", hi: "श्वेतांबर स्थानकवासी" },
+      { id: "Shwetambar Terapanthi", en: "Shwetambar Terapanthi", gu: "શ્વેતાંબર તેરાપંથી", hi: "श्वेतांबर तेरापंथी" },
+      { id: "Other", en: "Other Tradition / Sampradaya", gu: "અન્ય પરંપરા / સંપ્રદાય", hi: "अन्य परंपरा / सम्प्रदाय" }
+    ];
+
+    // Popular Jain Sammaj list
+    const sammajList = [
+      { id: "Visa Oswal", en: "Visa Oswal", gu: "વીસા ઓસવાલ", hi: "वीसा ओसवाल" },
+      { id: "Dasa Oswal", en: "Dasa Oswal", gu: "દસા ઓસવાલ", hi: "दसा ओसवाल" },
+      { id: "Kutchi Oswal", en: "Kutchi Oswal", gu: "કચ્છી ઓસવાલ", hi: "कच्छी ओसवाल" },
+      { id: "Porwal / Porwad", en: "Porwal / Porwad", gu: "પોરવાડ / પોરવાલ", hi: "पोरवाड़ / पोरवाल" },
+      { id: "Shrimali", en: "Shrimali", gu: "શ્રીમાળી", hi: "श्रीमाली" },
+      { id: "Khandelwal", en: "Khandelwal", gu: "ખંડેલવાલ", hi: "खंडेलवाल" },
+      { id: "Parwar", en: "Parwar", gu: "પરવાર", hi: "परवार" },
+      { id: "Humad", en: "Humad", gu: "હુમડ", hi: "हुमड़" },
+      { id: "Jaiswal", en: "Jaiswal", gu: "જયસ્વાલ", hi: "जायसवाल" },
+      { id: "Narsinghpura", en: "Narsinghpura", gu: "નરસિંહપુરા", hi: "नरसिंहपुरा" },
+      { id: "Sarawagi", en: "Sarawagi", gu: "સરાવગી", hi: "सरावगी" },
+      { id: "Bhavsar Jain", en: "Bhavsar Jain", gu: "ભાવસાર જૈન", hi: "भावसार जैन" },
+      { id: "OTHER", en: "Not found in list? Enter manually...", gu: "યાદીમાં નથી? જાતે નામ લખો...", hi: "सूची में नहीं है? खुद लिखें..." }
+    ];
+
+    // Indian States & Major Cities data
+    const indiaLocations = {
+      "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari", "Mehsana", "Palanpur", "Bhuj", "Morbi", "Surendranagar", "Bharuch", "Valsad", "Vapi", "Veraval", "Porbandar", "Patan", "Godhra", "Botad", "Amreli", "Himmatnagar", "Deesa", "Mandvi", "Anjar", "Other"],
+      "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Thane", "Chhatrapati Sambhajinagar (Aurangabad)", "Solapur", "Kolhapur", "Sangli", "Jalgaon", "Amravati", "Nanded", "Akola", "Dhule", "Ahmednagar", "Ichalkaranji", "Latur", "Satara", "Navi Mumbai", "Other"],
+      "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Bikaner", "Ajmer", "Bhilwara", "Alwar", "Pali", "Sikar", "Beawar", "Barmer", "Jalore", "Mount Abu", "Chittorgarh", "Sirohi", "Sumerpur", "Balotra", "Nagaur", "Kishangarh", "Banswara", "Other"],
+      "Madhya Pradesh": ["Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Khandwa", "Khargone", "Mandsaur", "Neemuch", "Vidisha", "Chhindwara", "Damoh", "Other"],
+      "Karnataka": ["Bengaluru", "Hubballi-Dharwad", "Mysuru", "Belagavi", "Mangaluru", "Kalaburagi", "Davanagere", "Ballari", "Vijayapura", "Shivamogga", "Tumakuru", "Bidar", "Hassan", "Other"],
+      "Delhi NCR": ["New Delhi", "Central Delhi", "South Delhi", "North Delhi", "Noida", "Gurugram", "Faridabad", "Ghaziabad", "Other"],
+      "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tiruppur", "Erode", "Vellore", "Other"],
+      "West Bengal": ["Kolkata", "Howrah", "Asansol", "Siliguri", "Durgapur", "Bardhaman", "Other"],
+      "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Meerut", "Prayagraj", "Bareilly", "Aligarh", "Moradabad", "Saharanpur", "Gorakhpur", "Firozabad", "Jhansi", "Other"],
+      "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam", "Secunderabad", "Other"],
+      "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Tirupati", "Rajahmundry", "Other"],
+      "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Other"],
+      "Haryana": ["Faridabad", "Gurugram", "Panipat", "Ambala", "Yamunanagar", "Rohtak", "Hisar", "Karnal", "Sonipat", "Other"],
+      "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Bihar Sharif", "Pawapuri", "Other"],
+      "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Rajnandgaon", "Durg", "Other"],
+      "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Giridih", "Shikharji (Parashnath)", "Other"],
+      "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Other"],
+      "Kerala": ["Kochi", "Thiruvananthapuram", "Kozhikode", "Thrissur", "Kollam", "Palakkad", "Other"],
+      "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda", "Other"],
+      "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Other"],
+      "Other State / Outside India": ["Other"]
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      // Update toggle buttons styling
+      ['en', 'gu', 'hi'].forEach(l => {
+        const btn = document.getElementById(`lang-btn-${l}`);
+        if (l === lang) {
+          btn.className = "px-3 py-1.5 rounded-xl bg-amber-600 text-white shadow-xs transition";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition";
+        }
+      });
+
+      const t = translations[lang];
+
+      // Update text elements
+      document.getElementById('txt-title').innerText = t.title;
+      document.getElementById('txt-subtitle').innerText = t.subtitle;
+      document.getElementById('txt-desc').innerText = t.desc;
+
+      document.getElementById('lbl-name').innerText = t.name;
+      document.getElementById('fullName').placeholder = t.name_placeholder;
+
+      document.getElementById('lbl-phone').innerText = t.phone;
+      document.getElementById('lbl-whatsapp').innerText = t.whatsapp;
+      document.getElementById('lbl-same').innerText = t.same;
+
+      document.getElementById('lbl-sampradaya').innerText = t.sampradaya;
+      document.getElementById('lbl-sammaj').innerText = t.sammaj;
+      document.getElementById('lbl-custom-sammaj').innerText = t.custom_sammaj;
+
+      document.getElementById('lbl-state').innerText = t.state;
+      document.getElementById('lbl-city').innerText = t.city;
+      document.getElementById('lbl-custom-city').innerText = t.custom_city;
+
+      document.getElementById('lbl-business').innerText = t.business;
+      document.getElementById('businessName').placeholder = t.business_placeholder;
+
+      document.getElementById('submitText').innerText = t.submit;
+
+      document.getElementById('txt-success-title').innerText = t.success_title;
+      document.getElementById('txt-success-subtitle').innerText = t.success_subtitle;
+      document.getElementById('txt-success-msg').innerHTML = t.success_msg;
+      document.getElementById('btn-submit-another').innerText = t.submit_another;
+
+      // Re-populate dropdowns with localized strings while preserving selection
+      populateSampradayaOptions();
+      populateSammajOptions();
+      populateStateOptions();
+    }
+
+    function populateSampradayaOptions() {
+      const select = document.getElementById('sampradayaSelect');
+      const cur = select.value;
+      const t = translations[currentLang];
+
+      select.innerHTML = `<option value="">${t.sampradaya_select}</option>` +
+        sampradayaList.map(s => `<option value="${s.id}" ${cur === s.id ? 'selected' : ''}>${s[currentLang] || s.en}</option>`).join('');
+    }
+
+    function populateSammajOptions() {
+      const select = document.getElementById('sammajSelect');
+      const cur = select.value;
+      const t = translations[currentLang];
+
+      select.innerHTML = `<option value="">${t.sammaj_select}</option>` +
+        sammajList.map(s => `<option value="${s.id}" ${cur === s.id ? 'selected' : ''}>${s[currentLang] || s.en}</option>`).join('');
+    }
+
+    function populateStateOptions() {
+      const select = document.getElementById('stateSelect');
+      const cur = select.value;
+      const t = translations[currentLang];
+
+      const states = Object.keys(indiaLocations);
+      select.innerHTML = `<option value="">${t.state_select}</option>` +
+        states.map(st => `<option value="${st}" ${cur === st ? 'selected' : ''}>${st}</option>`).join('');
+      
+      populateCityOptions();
+    }
+
+    function populateCityOptions() {
+      const stateSelect = document.getElementById('stateSelect');
+      const citySelect = document.getElementById('citySelect');
+      const curCity = citySelect.value;
+      const t = translations[currentLang];
+      const selectedState = stateSelect.value;
+
+      if (!selectedState || !indiaLocations[selectedState]) {
+        citySelect.innerHTML = `<option value="">${t.city_select}</option>`;
+        return;
+      }
+
+      const cities = indiaLocations[selectedState];
+      citySelect.innerHTML = `<option value="">${t.city_select}</option>` +
+        cities.map(c => `<option value="${c}" ${curCity === c ? 'selected' : ''}>${c}</option>`).join('');
+    }
+
+    function handleStateChange() {
+      validateState();
+      populateCityOptions();
+      document.getElementById('customCityBox').classList.add('hidden');
+    }
+
+    function handleCityChange() {
+      const select = document.getElementById('citySelect');
+      const customBox = document.getElementById('customCityBox');
+      const customInput = document.getElementById('customCity');
+      
+      validateCity();
+
+      if (select.value === 'Other') {
+        customBox.classList.remove('hidden');
+        customInput.focus();
+      } else {
+        customBox.classList.add('hidden');
+        document.getElementById('customCityError').classList.add('hidden');
+      }
+    }
+
+    function handleSammajSelection() {
+      const select = document.getElementById('sammajSelect');
+      const box = document.getElementById('customSammajBox');
+      const customInput = document.getElementById('customSammaj');
+      
+      validateSammaj();
+
+      if (select.value === 'OTHER') {
+        box.classList.remove('hidden');
+        customInput.focus();
+      } else {
+        box.classList.add('hidden');
+        document.getElementById('customSammajError').classList.add('hidden');
+      }
+    }
+
+    function handlePhoneInput() {
+      validatePhone();
+      if (document.getElementById('sameNumber').checked) {
+        document.getElementById('whatsapp').value = document.getElementById('phone').value;
+        validateWhatsApp();
+      }
+    }
+
+    function syncWhatsApp() {
+      const isChecked = document.getElementById('sameNumber').checked;
+      const phoneVal = document.getElementById('phone').value;
+      const waInput = document.getElementById('whatsapp');
+      if (isChecked) {
+        waInput.value = phoneVal;
+        validateWhatsApp();
+      }
+    }
+
+    // Validation Methods
+    function validateName() {
+      const el = document.getElementById('fullName');
+      const icon = document.getElementById('nameIcon');
+      const err = document.getElementById('nameError');
+      const val = el.value.trim();
+
+      if (val.length < 2) {
+        showStatus(el, icon, err, false, translations[currentLang].err_name);
+        return false;
+      }
+      showStatus(el, icon, err, true);
+      return true;
+    }
+
+    function validatePhone() {
+      const el = document.getElementById('phone');
+      const icon = document.getElementById('phoneIcon');
+      const err = document.getElementById('phoneError');
+      const digits = el.value.replace(/[^0-9]/g, '');
+
+      if (!digits || digits.length < 10 || digits.length > 15) {
+        showStatus(el, icon, err, false, translations[currentLang].err_phone);
+        return false;
+      }
+      showStatus(el, icon, err, true);
+      return true;
+    }
+
+    function validateWhatsApp() {
+      const el = document.getElementById('whatsapp');
+      const icon = document.getElementById('whatsappIcon');
+      const err = document.getElementById('whatsappError');
+      const digits = el.value.replace(/[^0-9]/g, '');
+
+      if (!digits || digits.length < 10 || digits.length > 15) {
+        showStatus(el, icon, err, false, translations[currentLang].err_wa);
+        return false;
+      }
+      showStatus(el, icon, err, true);
+      return true;
+    }
+
+    function validateSampradaya() {
+      const el = document.getElementById('sampradayaSelect');
+      const err = document.getElementById('sampradayaError');
+      if (!el.value) {
+        el.classList.add('border-rose-400');
+        err.innerText = translations[currentLang].err_sampradaya;
+        err.classList.remove('hidden');
+        return false;
+      }
+      el.classList.remove('border-rose-400');
+      err.classList.add('hidden');
+      return true;
+    }
+
+    function validateSammaj() {
+      const el = document.getElementById('sammajSelect');
+      const err = document.getElementById('sammajSelectError');
+      if (!el.value) {
+        el.classList.add('border-rose-400');
+        err.innerText = translations[currentLang].err_sammaj;
+        err.classList.remove('hidden');
+        return false;
+      }
+      el.classList.remove('border-rose-400');
+      err.classList.add('hidden');
+      return true;
+    }
+
+    function validateCustomSammaj() {
+      const el = document.getElementById('customSammaj');
+      const err = document.getElementById('customSammajError');
+      const val = el.value.trim();
+
+      if (!val) {
+        el.classList.add('border-rose-400');
+        err.innerText = translations[currentLang].err_custom_sammaj;
+        err.classList.remove('hidden');
+        return false;
+      }
+      el.classList.remove('border-rose-400');
+      err.classList.add('hidden');
+      return true;
+    }
+
+    function validateState() {
+      const el = document.getElementById('stateSelect');
+      const err = document.getElementById('stateError');
+      if (!el.value) {
+        el.classList.add('border-rose-400');
+        err.innerText = translations[currentLang].err_state;
+        err.classList.remove('hidden');
+        return false;
+      }
+      el.classList.remove('border-rose-400');
+      err.classList.add('hidden');
+      return true;
+    }
+
+    function validateCity() {
+      const el = document.getElementById('citySelect');
+      const err = document.getElementById('cityError');
+      if (!el.value) {
+        el.classList.add('border-rose-400');
+        err.innerText = translations[currentLang].err_city;
+        err.classList.remove('hidden');
+        return false;
+      }
+      el.classList.remove('border-rose-400');
+      err.classList.add('hidden');
+      return true;
+    }
+
+    function validateCustomCity() {
+      const el = document.getElementById('customCity');
+      const err = document.getElementById('customCityError');
+      const val = el.value.trim();
+
+      if (!val) {
+        el.classList.add('border-rose-400');
+        err.innerText = translations[currentLang].err_custom_city;
+        err.classList.remove('hidden');
+        return false;
+      }
+      el.classList.remove('border-rose-400');
+      err.classList.add('hidden');
+      return true;
+    }
+
+    function validateBusiness() {
+      const el = document.getElementById('businessName');
+      const err = document.getElementById('businessError');
+      const val = el.value.trim();
+
+      if (val.length < 2) {
+        el.classList.add('border-rose-400');
+        err.innerText = translations[currentLang].err_business;
+        err.classList.remove('hidden');
+        return false;
+      }
+      el.classList.remove('border-rose-400');
+      err.classList.add('hidden');
+      return true;
+    }
+
+    function showStatus(inputEl, iconEl, errorEl, isValid, msg = '') {
+      if (isValid) {
+        inputEl.classList.remove('border-rose-400', 'bg-rose-50/20');
+        inputEl.classList.add('border-emerald-500', 'bg-emerald-50/10');
+        iconEl.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i>`;
+        iconEl.classList.remove('hidden');
+        errorEl.classList.add('hidden');
+      } else {
+        inputEl.classList.add('border-rose-400', 'bg-rose-50/20');
+        inputEl.classList.remove('border-emerald-500', 'bg-emerald-50/10');
+        iconEl.innerHTML = `<i data-lucide="alert-circle" class="w-5 h-5 text-rose-500"></i>`;
+        iconEl.classList.remove('hidden');
+        errorEl.innerText = msg;
+        errorEl.classList.remove('hidden');
+      }
+      lucide.createIcons();
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const okName = validateName();
+      const okPhone = validatePhone();
+      const okWhatsApp = validateWhatsApp();
+      const okSampradaya = validateSampradaya();
+      const okSammaj = validateSammaj();
+      const okState = validateState();
+      const okCity = validateCity();
+      const okBusiness = validateBusiness();
+
+      let okCustomSammaj = true;
+      if (document.getElementById('sammajSelect').value === 'OTHER') {
+        okCustomSammaj = validateCustomSammaj();
+      }
+
+      let okCustomCity = true;
+      if (document.getElementById('citySelect').value === 'Other') {
+        okCustomCity = validateCustomCity();
+      }
+
+      const alertEl = document.getElementById('statusAlert');
+
+      if (!okName || !okPhone || !okWhatsApp || !okSampradaya || !okSammaj || !okCustomSammaj || !okState || !okCity || !okCustomCity || !okBusiness) {
+        alertEl.innerText = translations[currentLang].err_all;
+        alertEl.classList.remove('hidden');
+        return;
+      }
+
+      const resolvedSammaj = document.getElementById('sammajSelect').value === 'OTHER'
+        ? document.getElementById('customSammaj').value.trim()
+        : document.getElementById('sammajSelect').value;
+
+      const resolvedCity = document.getElementById('citySelect').value === 'Other'
+        ? document.getElementById('customCity').value.trim()
+        : document.getElementById('citySelect').value;
+
+      const payload = {
+        id: 'JC360_' + Math.random().toString(36).substring(2, 9).toUpperCase(),
+        timestamp: new Date().toISOString(),
+        fullName: document.getElementById('fullName').value.trim(),
+        number: document.getElementById('phone').value.trim(),
+        whatsappNumber: document.getElementById('whatsapp').value.trim(),
+        sampradaya: document.getElementById('sampradayaSelect').value,
+        sammajName: resolvedSammaj,
+        state: document.getElementById('stateSelect').value,
+        city: resolvedCity,
+        businessName: document.getElementById('businessName').value.trim(),
+        languageUsed: currentLang,
+        verified: true
+      };
+
+      const btn = document.getElementById('submitButton');
+      const spinner = document.getElementById('submitSpinner');
+      const btnText = document.getElementById('submitText');
+
+      btn.disabled = true;
+      spinner.classList.remove('hidden');
+      btnText.innerText = translations[currentLang].submitting;
+
+      try {
+        if (GOOGLE_WEBHOOK_URL && !GOOGLE_WEBHOOK_URL.includes("YOUR_GOOGLE_APPS_SCRIPT_URL_HERE")) {
+          await fetch(GOOGLE_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+
+        // Show success screen and hide form
+        document.getElementById('formCard').classList.add('hidden');
+        document.getElementById('successCard').classList.remove('hidden');
+        lucide.createIcons();
+
+      } catch (err) {
+        alertEl.innerText = "Error transmitting details: " + err.message;
+        alertEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        spinner.classList.add('hidden');
+        btnText.innerText = translations[currentLang].submit;
+        lucide.createIcons();
+      }
+    }
+
+    function resetForNewEntry() {
+      document.getElementById('jainForm').reset();
+      ['fullName', 'phone', 'whatsapp', 'businessName'].forEach(id => {
+        const input = document.getElementById(id);
+        input.classList.remove('border-emerald-500', 'bg-emerald-50/10', 'border-rose-400', 'bg-rose-50/20');
+      });
+      ['nameIcon', 'phoneIcon', 'whatsappIcon'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      ['sampradayaSelect', 'sammajSelect', 'stateSelect', 'citySelect'].forEach(id => {
+        document.getElementById(id).classList.remove('border-rose-400');
+      });
+      document.getElementById('customSammajBox').classList.add('hidden');
+      document.getElementById('customCityBox').classList.add('hidden');
+      document.getElementById('statusAlert').classList.add('hidden');
+
+      document.getElementById('successCard').classList.add('hidden');
+      document.getElementById('formCard').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    // Initialize on page load
+    setLanguage('en');
+    lucide.createIcons();
+  </script>
+</body>
+</html>
