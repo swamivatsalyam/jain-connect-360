@@ -8,10 +8,8 @@ export const JainConnectSchema = z.object({
     .min(2, 'Name must be at least 2 characters'),
   number: z
     .string()
-    .optional()
-    .refine((val) => !val || (val.replace(/[^0-9]/g, '').length >= 10 && val.replace(/[^0-9]/g, '').length <= 15), {
-      message: 'Contact number must be between 10 and 15 digits',
-    }),
+    .min(10, 'Contact number must be at least 10 digits')
+    .max(15, 'Invalid phone number length'),
   whatsappNumber: z
     .string()
     .optional()
@@ -282,12 +280,9 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
         {/* Number & WhatsApp */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <div className="flex items-center justify-between mb-1">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                Calling Number
-              </label>
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
-            </div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+              Calling Number *
+            </label>
             <input
               type="tel"
               {...register('number')}
@@ -490,6 +485,105 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
           {isSubmitting ? 'Submitting...' : 'Submit Details'}
         </button>
       </form>
+
+      {/* Community & Support Section (WhatsApp QR + Payment QR) */}
+      <div className="mt-8 pt-6 border-t border-slate-100 space-y-5">
+        <div className="text-center space-y-1">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200">
+            {currentLang === 'en'
+              ? 'Official Community & Seva Support'
+              : currentLang === 'gu'
+              ? 'સામુહિક જોડાણ અને સેવા સહયોગ'
+              : 'सामुदायिक जुड़ाव एवं सेवा सहयोग'}
+          </span>
+          <p className="text-xs text-slate-600">
+            {currentLang === 'en'
+              ? 'Connect with fellow Jains and contribute towards our sacred mission.'
+              : currentLang === 'gu'
+              ? 'સાધર્મિક બંધુઓ સાથે જોડાઓ અને શાસન રક્ષાના પાવન કાર્યમાં સહભાગી બનો.'
+              : 'साधार्मिक बंधुओं से जुड़ें और शासन रक्षा के पावन कार्य में सहभागी बनें।'}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* WhatsApp Community QR */}
+          <div className="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 flex flex-col items-center text-center space-y-3">
+            <div>
+              <h4 className="text-xs font-bold text-slate-900">
+                {currentLang === 'en'
+                  ? 'Join WhatsApp Community'
+                  : currentLang === 'gu'
+                  ? 'વોટ્સએપ કોમ્યુનિટીમાં જોડાઓ'
+                  : 'व्हाट्सएप कम्युनिटी से जुड़ें'}
+              </h4>
+              <p className="text-[11px] text-slate-500 mt-0.5">
+                {currentLang === 'en'
+                  ? 'Business networking & updates'
+                  : currentLang === 'gu'
+                  ? 'વ્યાપાર નેટવર્કિંગ અને અપડેટ્સ'
+                  : 'व्यापार नेटवर्किंग एवं अपडेट्स'}
+              </p>
+            </div>
+            <div className="p-2 bg-white rounded-xl border border-emerald-200 shadow-xs">
+              <img
+                src="/assets/whatsapp_qr.png"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src =
+                    'https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fchat.whatsapp.com%2FIkS1QcmmdUbAQAZrObyiDQ';
+                }}
+                alt="WhatsApp Community QR"
+                className="w-32 h-32 object-contain rounded-md"
+              />
+            </div>
+            <a
+              href="https://chat.whatsapp.com/IkS1QcmmdUbAQAZrObyiDQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs text-center transition"
+            >
+              {currentLang === 'en'
+                ? 'Join WhatsApp Group'
+                : currentLang === 'gu'
+                ? 'વોટ્સએપ ગ્રુપમાં જોડાઓ'
+                : 'व्हाट्सएप ग्रुप से जुड़ें'}
+            </a>
+          </div>
+
+          {/* Payment Support QR */}
+          <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 flex flex-col items-center text-center space-y-3">
+            <div>
+              <h4 className="text-xs font-bold text-slate-900">
+                {currentLang === 'en'
+                  ? 'Donation & Seva Support'
+                  : currentLang === 'gu'
+                  ? 'દાન અને સેવા સહયોગ'
+                  : 'दान एवं सेवा सहयोग'}
+              </h4>
+              <p className="text-[11px] text-slate-500 mt-0.5">
+                {currentLang === 'en'
+                  ? 'Dharam & Tirth Raksha Contribution'
+                  : currentLang === 'gu'
+                  ? 'ધર્મ અને તીર્થ રક્ષામાં સહયોગ'
+                  : 'धर्म एवं तीर्थ रक्षा में सहयोग'}
+              </p>
+            </div>
+            <div className="p-2 bg-white rounded-xl border border-amber-200 shadow-xs">
+              <img
+                src="/assets/payment_qr.jpg"
+                alt="Donation & Payment QR"
+                className="w-32 h-32 object-contain rounded-md"
+              />
+            </div>
+            <div className="w-full py-2 px-2 rounded-xl bg-amber-100 text-amber-900 font-semibold text-[10px] text-center">
+              {currentLang === 'en'
+                ? 'Scan via UPI (GPay / PhonePe / Paytm)'
+                : currentLang === 'gu'
+                ? 'કોઈપણ UPI એપ વડે સ્કેન કરો'
+                : 'किसी भी UPI ऐप से स्कैन करें'}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

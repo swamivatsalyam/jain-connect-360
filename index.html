@@ -129,12 +129,9 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <!-- Calling Number -->
             <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                  <span id="lbl-phone">Contact Number (Calling)</span>
-                </label>
-                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
-              </div>
+              <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                <span id="lbl-phone">Contact Number (Calling)</span> <span class="text-rose-500">*</span>
+              </label>
               <div class="relative">
                 <input 
                   type="tel" 
@@ -433,6 +430,79 @@
 
     </div>
 
+    <!-- Community & Support Section (WhatsApp QR + Payment QR) -->
+    <div class="mt-8 bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 sm:p-8 space-y-6">
+      <div class="text-center space-y-1.5">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200 shadow-xs">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+          <span id="txt-community-heading">Official Community & Seva Support</span>
+        </div>
+        <p id="txt-community-subheading" class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
+          Connect with fellow Jains and contribute towards our sacred mission.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <!-- Card 1: WhatsApp Community QR -->
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-emerald-50/60 to-white border border-emerald-200/80 flex flex-col items-center text-center space-y-3.5 shadow-xs hover:border-emerald-300 transition">
+          <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-sm">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          </div>
+          <div class="space-y-1">
+            <h3 id="txt-wa-card-title" class="text-sm sm:text-base font-extrabold text-slate-900">Join WhatsApp Community</h3>
+            <p id="txt-wa-card-sub" class="text-xs text-slate-600 leading-relaxed">Stay connected for business networking, news & community updates.</p>
+          </div>
+          
+          <!-- WhatsApp QR Code Image -->
+          <div class="p-3 bg-white rounded-2xl border border-emerald-200 shadow-sm">
+            <img 
+              src="assets/whatsapp_qr.png" 
+              onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fchat.whatsapp.com%2FIkS1QcmmdUbAQAZrObyiDQ'" 
+              alt="Join WhatsApp Community QR Code" 
+              class="w-40 h-40 object-contain rounded-lg"
+            />
+          </div>
+
+          <!-- Join Button -->
+          <a 
+            href="https://chat.whatsapp.com/IkS1QcmmdUbAQAZrObyiDQ" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-xs shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-2 cursor-pointer select-none"
+          >
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span id="txt-wa-card-btn">Join WhatsApp Community</span>
+          </a>
+        </div>
+
+        <!-- Card 2: Donation & Support Payment QR -->
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-50/60 to-white border border-amber-200/80 flex flex-col items-center text-center space-y-3.5 shadow-xs hover:border-amber-300 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center shadow-sm">
+            <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+          </div>
+          <div class="space-y-1">
+            <h3 id="txt-pay-card-title" class="text-sm sm:text-base font-extrabold text-slate-900">Donation & Seva Support</h3>
+            <p id="txt-pay-card-sub" class="text-xs text-slate-600 leading-relaxed">Support Dharam Raksha, Tirth Raksha & Swami Vatsalyam.</p>
+          </div>
+
+          <!-- Payment QR Code Image -->
+          <div class="p-3 bg-white rounded-2xl border border-amber-200 shadow-sm">
+            <img 
+              src="assets/payment_qr.jpg" 
+              alt="Donation & Support Payment QR Code" 
+              class="w-40 h-40 object-contain rounded-lg"
+            />
+          </div>
+
+          <!-- UPI Note -->
+          <div class="w-full py-2.5 px-3 rounded-xl bg-amber-100/70 border border-amber-200 text-amber-900 font-semibold text-[11px] flex items-center justify-center gap-1.5">
+            <i data-lucide="qr-code" class="w-3.5 h-3.5 text-amber-700 shrink-0"></i>
+            <span id="txt-pay-card-scan">Scan with any UPI App (GPay / PhonePe / Paytm)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer Note -->
     <div class="mt-6 text-center text-xs text-slate-400">
       Jain Connect 360° • Connecting Every Jain • Jai Jinendra
@@ -489,7 +559,15 @@
         volunteer_opt: "Optional",
         vol_yes: "✨ Yes",
         vol_no: "No",
-        vol_anumodna: "Anumodna! Thank you for your noble spirit of seva."
+        vol_anumodna: "Anumodna! Thank you for your noble spirit of seva.",
+        community_heading: "Official Community & Seva Support",
+        community_subheading: "Connect with fellow Jains and contribute towards our sacred mission.",
+        wa_card_title: "Join WhatsApp Community",
+        wa_card_sub: "Stay connected for business networking, news & community updates.",
+        wa_card_btn: "Join WhatsApp Community",
+        pay_card_title: "Donation & Seva Support",
+        pay_card_sub: "Support Dharam Raksha, Tirth Raksha & Swami Vatsalyam.",
+        pay_card_scan: "Scan with any UPI App (GPay / PhonePe / Paytm)"
       },
       gu: {
         title: "જૈન કનેક્ટ 360°",
@@ -538,7 +616,15 @@
         volunteer_opt: "વૈકલ્પિક",
         vol_yes: "✨ હા (Yes)",
         vol_no: "ના (No)",
-        vol_anumodna: "અનુમોદના! જિનશાસન સેવાની આપની ઉમદા ભાવના બદલ ખૂબ ખૂબ આભાર."
+        vol_anumodna: "અનુમોદના! જિનશાસન સેવાની આપની ઉમદા ભાવના બદલ ખૂબ ખૂબ આભાર.",
+        community_heading: "સામુહિક જોડાણ અને સેવા સહયોગ",
+        community_subheading: "સાધર્મિક બંધુઓ સાથે જોડાઓ અને શાસન રક્ષાના પાવન કાર્યમાં સહભાગી બનો.",
+        wa_card_title: "વોટ્સએપ કોમ્યુનિટીમાં જોડાઓ",
+        wa_card_sub: "સાધર્મિક વ્યાપાર, સમાચાર અને સમાજના મહત્વના અપડેટ્સ મેળવો.",
+        wa_card_btn: "વોટ્સએપ ગ્રુપમાં જોડાઓ",
+        pay_card_title: "દાન અને સેવા સહયોગ",
+        pay_card_sub: "ધર્મ રક્ષા, તીર્થ રક્ષા અને સ્વામી વાત્સલ્ય માટે યથાશક્તિ સહયોગ આપો.",
+        pay_card_scan: "કોઈપણ UPI એપ વડે સ્કેન કરો (GPay / PhonePe / Paytm)"
       },
       hi: {
         title: "जैन कनेक्ट 360°",
@@ -587,7 +673,15 @@
         volunteer_opt: "वैकल्पिक",
         vol_yes: "✨ हाँ (Yes)",
         vol_no: "नहीं (No)",
-        vol_anumodna: "अनुमोदना! जिनशासन सेवा की आपकी पावन भावना हेतु धन्यवाद।"
+        vol_anumodna: "अनुमोदना! जिनशासन सेवा की आपकी पावन भावना हेतु धन्यवाद।",
+        community_heading: "सामुदायिक जुड़ाव एवं सेवा सहयोग",
+        community_subheading: "साधार्मिक बंधुओं से जुड़ें और शासन रक्षा के पावन कार्य में सहभागी बनें।",
+        wa_card_title: "व्हाट्सएप कम्युनिटी से जुड़ें",
+        wa_card_sub: "साधार्मिक व्यापार, समाचार एवं समाज के महत्वपूर्ण अपडेट्स प्राप्त करें।",
+        wa_card_btn: "व्हाट्सएप ग्रुप से जुड़ें",
+        pay_card_title: "दान एवं सेवा सहयोग",
+        pay_card_sub: "धर्म रक्षा, तीर्थ रक्षा एवं स्वामी वात्सल्य हेतु यथाशक्ति सहयोग दें।",
+        pay_card_scan: "किसी भी UPI ऐप से स्कैन करें (GPay / PhonePe / Paytm)"
       }
     };
 
@@ -706,6 +800,17 @@
       document.getElementById('lbl-vol-anumodna').innerText = t.vol_anumodna;
 
       document.getElementById('submitText').innerText = t.submit;
+
+      if (document.getElementById('txt-community-heading')) {
+        document.getElementById('txt-community-heading').innerText = t.community_heading;
+        document.getElementById('txt-community-subheading').innerText = t.community_subheading;
+        document.getElementById('txt-wa-card-title').innerText = t.wa_card_title;
+        document.getElementById('txt-wa-card-sub').innerText = t.wa_card_sub;
+        document.getElementById('txt-wa-card-btn').innerText = t.wa_card_btn;
+        document.getElementById('txt-pay-card-title').innerText = t.pay_card_title;
+        document.getElementById('txt-pay-card-sub').innerText = t.pay_card_sub;
+        document.getElementById('txt-pay-card-scan').innerText = t.pay_card_scan;
+      }
 
       populateSampradayaOptions();
       populateSammajOptions();
@@ -875,15 +980,7 @@
       const val = el.value.trim();
       const digits = val.replace(/[^0-9]/g, '');
 
-      // Optional: valid if empty
-      if (!val) {
-        el.classList.remove('border-rose-400', 'bg-rose-50/20', 'border-emerald-500', 'bg-emerald-50/10');
-        icon.classList.add('hidden');
-        err.classList.add('hidden');
-        return true;
-      }
-
-      if (digits.length < 10 || digits.length > 15) {
+      if (!val || digits.length < 10 || digits.length > 15) {
         showStatus(el, icon, err, false, translations[currentLang].err_phone);
         return false;
       }
