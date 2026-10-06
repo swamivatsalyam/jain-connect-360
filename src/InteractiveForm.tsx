@@ -58,6 +58,39 @@ export const JainConnectSchema = z.object({
 
 export type JainConnectFormValues = z.infer<typeof JainConnectSchema>;
 
+const heroContent = {
+  en: {
+    title: 'Jain Connect 360 Degree',
+    subtitle: 'Connecting Every Jain',
+    goals: ['🛡️ Dharam Raksha', '🏛️ Tirth Raksha', '🤝 Swami Vatsalyam'],
+    purposeBadge: 'Our Sacred Mission & Purpose',
+    purposeQ: 'Question: How do I fill out this form?',
+    purposeAPrefix: 'Answer',
+    purposeA:
+      'Through this form, in the future, if you ever need to increase the business level of your family, instead of personally benefiting from it, the idea is that your fellow Jain brothers can purchase through you and the money is used in the right place. With this purpose, and in matters related to defending the faith, you can volunteer for Jain Connect 360, which is a platform for protecting the religion.',
+  },
+  gu: {
+    title: 'જૈન કનેક્ટ 360 ડિગ્રી',
+    subtitle: 'દરેક જૈનને જોડતો સેતુ',
+    goals: ['🛡️ ધર્મ રક્ષા', '🏛️ તીર્થ રક્ષા', '🤝 સ્વામી વાત્સલ્ય'],
+    purposeBadge: 'આપણો પાવન સંકલ્પ અને ઉદ્દેશ્ય',
+    purposeQ: 'પ્રશ્ન: આ ફોર્મ શા માટે ભરવું અને તેનો હેતુ શું છે?',
+    purposeAPrefix: 'જવાબ',
+    purposeA:
+      'આ ફોર્મ દ્વારા ભવિષ્યમાં તમારા પરિવારનો વ્યાપાર-રોજગાર વધારવા માટે, માત્ર અંગત લાભ ખાતર નહીં, પરંતુ સાધર્મિક જૈન ભાઈઓ આપણી પાસેથી જ ખરીદી કરે અને લક્ષ્મીનો સદુપયોગ સાચી જગ્યાએ ધર્મકાર્યમાં થાય તે મુખ્ય વિચાર છે. આ પવિત્ર હેતુ સાથે તથા ધર્મ રક્ષાના કાર્યોમાં આપ જૈન કનેક્ટ ૩૬૦ સાથે જોડાઈને શાસન રક્ષાના આ પ્લેટફોર્મ પર સ્વયંસેવક બની શકો છો.',
+  },
+  hi: {
+    title: 'जैन कनेक्ट 360 डिग्री',
+    subtitle: 'हर जैन को जोड़ने वाला मंच',
+    goals: ['🛡️ धर्म रक्षा', '🏛️ तीर्थ रक्षा', '🤝 स्वामी वात्सल्य'],
+    purposeBadge: 'हमारा पावन संकल्प और उद्देश्य',
+    purposeQ: 'प्रश्न: यह फॉर्म क्यों भरें और इसका क्या उद्देश्य है?',
+    purposeAPrefix: 'उत्तर',
+    purposeA:
+      'इस फॉर्म के माध्यम से भविष्य में आपके परिवार के व्यापार की वृद्धि हेतु, केवल व्यक्तिगत लाभ के लिए नहीं, बल्कि हमारे साथी जैन भाई आपसे ही खरीदारी करें और धन का सदुपयोग सही स्थान पर धर्मकार्य में हो — यही मुख्य विचार है। इसी पावन उद्देश्य के साथ तथा धर्म की रक्षा से जुड़े कार्यों में आप जैन कनेक्ट 360 से जुड़कर शासन रक्षा के इस मंच पर स्वयंसेवक बन सकते हैं।',
+  },
+};
+
 interface JainConnectFormProps {
   googleWebhookUrl?: string;
   supabaseEndpoint?: string;
@@ -192,8 +225,39 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
       </div>
 
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-extrabold text-slate-900">Jain Connect 360 Degree</h2>
-        <p className="text-amber-700 font-semibold text-sm mt-1">Connecting Every Jain</p>
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{heroContent[currentLang].title}</h2>
+        <p className="text-amber-700 font-semibold text-sm mt-1">{heroContent[currentLang].subtitle}</p>
+
+        {/* 3 Sacred Goals / Pillars */}
+        <div className="flex items-center justify-center flex-wrap gap-2 mt-3.5">
+          {heroContent[currentLang].goals.map((goal, idx) => (
+            <span
+              key={idx}
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 shadow-xs"
+            >
+              {goal}
+            </span>
+          ))}
+        </div>
+
+        {/* Sacred Purpose & Motivation Q&A Card */}
+        <div className="mt-4 text-left p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-50/90 to-orange-50/60 border border-amber-200/90 shadow-xs space-y-2">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
+            <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-900">
+              {heroContent[currentLang].purposeBadge}
+            </span>
+          </div>
+          <div className="space-y-1">
+            <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+              {heroContent[currentLang].purposeQ}
+            </p>
+            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-normal">
+              <span className="font-bold text-amber-900">{heroContent[currentLang].purposeAPrefix}: </span>
+              {heroContent[currentLang].purposeA}
+            </p>
+          </div>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
