@@ -101,7 +101,7 @@ interface JainConnectFormProps {
 }
 
 export const JainConnectForm: React.FC<JainConnectFormProps> = ({
-  googleWebhookUrl,
+  googleWebhookUrl = 'https://script.google.com/macros/s/AKfycbx_gKg7VwmgAIAovuZHZTs1hlzZBX6x8XhSkjCVj9OF35ocBAGH-tWwLUNZHyNX0FJYkw/exec',
   supabaseEndpoint,
   supabaseAnonKey,
   onSuccess,
@@ -162,7 +162,7 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
         await fetch(googleWebhookUrl, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(payload),
         });
       }

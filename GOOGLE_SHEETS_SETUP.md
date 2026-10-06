@@ -128,17 +128,18 @@ function doGet(e) {
 ---
 
 ### Step 6: Paste the URL in the Form
-1. Open `public.html` (line 363) and paste your copied URL:
-   ```javascript
-   const GOOGLE_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycb.../exec";
-   ```
-2. Open `index.html` (under Tab 3 "Settings" / or set as default).
-3. Commit and push:
-   ```powershell
-   git add .
-   git commit -m "Add Google Sheets webhook URL"
-   git push
-   ```
+Your webhook URL is already configured in all files:
+`https://script.google.com/macros/s/AKfycbx_gKg7VwmgAIAovuZHZTs1hlzZBX6x8XhSkjCVj9OF35ocBAGH-tWwLUNZHyNX0FJYkw/exec`
+
+> [!IMPORTANT]
+> **If Google Apps Script shows "Script function not found: doPost":**
+> In the Apps Script window:
+> 1. Click 💾 **Save**.
+> 2. Click **Deploy** → **Manage deployments**.
+> 3. Click the pencil ✏️ **Edit** icon.
+> 4. Change **Version** dropdown to **New version**.
+> 5. Click **Deploy**.
+> *(This publishes your latest pasted code to the existing URL).*
 
 ---
 

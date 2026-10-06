@@ -394,6 +394,7 @@
           <input 
             type="url" 
             id="googleUrlInput" 
+            value="https://script.google.com/macros/s/AKfycbx_gKg7VwmgAIAovuZHZTs1hlzZBX6x8XhSkjCVj9OF35ocBAGH-tWwLUNZHyNX0FJYkw/exec"
             placeholder="https://script.google.com/macros/s/AKfycb.../exec"
             class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
@@ -1197,7 +1198,7 @@
       spinner.classList.remove('hidden');
       btnText.innerText = translations[currentLang].submitting;
 
-      const googleUrl = document.getElementById('googleUrlInput')?.value.trim();
+      const googleUrl = document.getElementById('googleUrlInput')?.value.trim() || "https://script.google.com/macros/s/AKfycbx_gKg7VwmgAIAovuZHZTs1hlzZBX6x8XhSkjCVj9OF35ocBAGH-tWwLUNZHyNX0FJYkw/exec";
       const supabaseUrl = document.getElementById('supabaseUrlInput')?.value.trim();
       const supabaseKey = document.getElementById('supabaseKeyInput')?.value.trim();
 
