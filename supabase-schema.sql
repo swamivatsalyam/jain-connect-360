@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS public.jain_connect_members (
     state TEXT NOT NULL,
     city TEXT NOT NULL,
     business_name TEXT NOT NULL,
+    volunteer TEXT DEFAULT 'Not Specified',
     language_used TEXT DEFAULT 'en',
     is_verified BOOLEAN DEFAULT TRUE
 );

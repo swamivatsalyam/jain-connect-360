@@ -35,6 +35,9 @@ export const JainConnectSchema = z.object({
   businessName: z
     .string()
     .min(2, 'Please enter your business name or occupation'),
+  volunteer: z
+    .string()
+    .optional(),
 }).refine((data) => {
   if (data.sammajSelection === 'OTHER') {
     return !!data.customSammaj && data.customSammaj.trim().length > 2;
@@ -114,6 +117,7 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
       state: data.state,
       city: resolvedCity,
       businessName: data.businessName,
+      volunteer: data.volunteer || 'Not Specified',
       languageUsed: currentLang,
       verified: true,
     };
@@ -145,6 +149,7 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             state: data.state,
             city: resolvedCity,
             business_name: data.businessName,
+            volunteer: data.volunteer || 'Not Specified',
             language_used: currentLang,
           }),
         });
@@ -345,6 +350,32 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
           />
           {errors.businessName && <p className="text-xs text-rose-500 mt-1">{errors.businessName.message}</p>}
+        </div>
+
+        {/* Volunteer for Jinshashan (Optional) */}
+        <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-2.5">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-slate-800">
+              {currentLang === 'en'
+                ? 'Do you want to become a volunteer for Jinshashan?'
+                : currentLang === 'gu'
+                ? 'શું આપ જિનશાસનની સેવા માટે સ્વયંસેવક (Volunteer) બનવા માંગો છો?'
+                : 'क्या आप जिनशासन की सेवा हेतु स्वयंसेवक (Volunteer) बनना चाहते हैं?'}
+            </span>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
+              {currentLang === 'en' ? 'Optional' : currentLang === 'gu' ? 'વૈકલ્પિક' : 'वैकल्पिक'}
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <label className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 cursor-pointer hover:border-amber-400">
+              <input type="radio" value="Yes" {...register('volunteer')} className="text-amber-600" />
+              <span>{currentLang === 'en' ? '✨ Yes' : currentLang === 'gu' ? '✨ હા (Yes)' : '✨ हाँ (Yes)'}</span>
+            </label>
+            <label className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl border border-slate-200 bg-white text-xs font-medium text-slate-600 cursor-pointer hover:border-slate-300">
+              <input type="radio" value="No" {...register('volunteer')} className="text-slate-600" />
+              <span>{currentLang === 'en' ? 'No' : currentLang === 'gu' ? 'ના (No)' : 'नहीं (No)'}</span>
+            </label>
+          </div>
         </div>
 
         {/* Status Alert */}

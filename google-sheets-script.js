@@ -36,12 +36,13 @@ function doPost(e) {
         "State",
         "City / Town",
         "Business Name / Occupation",
+        "Volunteer for Jinshashan",
         "Language",
         "Status"
       ]);
       
       // Style headers: Amber/Gold theme with bold white text
-      var headerRange = sheet.getRange(1, 1, 1, 12);
+      var headerRange = sheet.getRange(1, 1, 1, 13);
       headerRange.setFontWeight("bold")
                  .setBackground("#D97706")
                  .setFontColor("#FFFFFF");
@@ -63,6 +64,7 @@ function doPost(e) {
       data.state || "",
       data.city || "",
       data.businessName || "",
+      data.volunteer || "Not Specified",
       data.languageUsed || "en",
       "VERIFIED"
     ]);
