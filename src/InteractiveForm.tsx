@@ -93,6 +93,30 @@ const heroContent = {
   },
 };
 
+const indiaLocations: Record<string, string[]> = {
+  "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari", "Mehsana", "Palanpur", "Bhuj", "Morbi", "Surendranagar", "Bharuch", "Valsad", "Vapi", "Veraval", "Porbandar", "Patan", "Godhra", "Botad", "Amreli", "Himmatnagar", "Deesa", "Mandvi", "Anjar", "Other"],
+  "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Thane", "Chhatrapati Sambhajinagar (Aurangabad)", "Solapur", "Kolhapur", "Sangli", "Jalgaon", "Amravati", "Nanded", "Akola", "Dhule", "Ahmednagar", "Ichalkaranji", "Latur", "Satara", "Navi Mumbai", "Other"],
+  "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Bikaner", "Ajmer", "Bhilwara", "Alwar", "Pali", "Sikar", "Beawar", "Barmer", "Jalore", "Mount Abu", "Chittorgarh", "Sirohi", "Sumerpur", "Balotra", "Nagaur", "Kishangarh", "Banswara", "Other"],
+  "Madhya Pradesh": ["Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Khandwa", "Khargone", "Mandsaur", "Neemuch", "Vidisha", "Chhindwara", "Damoh", "Other"],
+  "Karnataka": ["Bengaluru", "Hubballi-Dharwad", "Mysuru", "Belagavi", "Mangaluru", "Kalaburagi", "Davanagere", "Ballari", "Vijayapura", "Shivamogga", "Tumakuru", "Bidar", "Hassan", "Other"],
+  "Delhi NCR": ["New Delhi", "Central Delhi", "South Delhi", "North Delhi", "Noida", "Gurugram", "Faridabad", "Ghaziabad", "Other"],
+  "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tiruppur", "Erode", "Vellore", "Other"],
+  "West Bengal": ["Kolkata", "Howrah", "Asansol", "Siliguri", "Durgapur", "Bardhaman", "Other"],
+  "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Meerut", "Prayagraj", "Bareilly", "Aligarh", "Moradabad", "Saharanpur", "Gorakhpur", "Firozabad", "Jhansi", "Other"],
+  "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam", "Secunderabad", "Other"],
+  "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Tirupati", "Rajahmundry", "Other"],
+  "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Other"],
+  "Haryana": ["Faridabad", "Gurugram", "Panipat", "Ambala", "Yamunanagar", "Rohtak", "Hisar", "Karnal", "Sonipat", "Other"],
+  "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Bihar Sharif", "Pawapuri", "Other"],
+  "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Rajnandgaon", "Durg", "Other"],
+  "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Giridih", "Shikharji (Parashnath)", "Other"],
+  "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Other"],
+  "Kerala": ["Kochi", "Thiruvananthapuram", "Kozhikode", "Thrissur", "Kollam", "Palakkad", "Other"],
+  "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda", "Other"],
+  "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Other"],
+  "Other State / Outside India": ["Other"]
+};
+
 interface JainConnectFormProps {
   googleWebhookUrl?: string;
   supabaseEndpoint?: string;
@@ -124,6 +148,7 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
   } = useForm<JainConnectFormValues>();
 
   const selectedSammaj = watch('sammajSelection');
+  const selectedState = watch('state');
   const selectedCity = watch('citySelection');
   const contactNumber = watch('number');
 
@@ -403,11 +428,19 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
               State *
             </label>
-            <input
+            <select
               {...register('state')}
-              placeholder="e.g. Gujarat, Maharashtra, Rajasthan"
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
-            />
+              onChange={(e) => {
+                register('state').onChange(e);
+                setValue('citySelection', '');
+              }}
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+            >
+              <option value="">Select State...</option>
+              {Object.keys(indiaLocations).map((st) => (
+                <option key={st} value={st}>{st}</option>
+              ))}
+            </select>
             {errors.state && <p className="text-xs text-rose-500 mt-1">{errors.state.message}</p>}
           </div>
 
@@ -415,14 +448,33 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
               City / Town *
             </label>
-            <input
+            <select
               {...register('citySelection')}
-              placeholder="e.g. Ahmedabad, Mumbai, Jaipur"
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
-            />
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+            >
+              <option value="">Select City...</option>
+              {selectedState && indiaLocations[selectedState]?.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
             {errors.citySelection && <p className="text-xs text-rose-500 mt-1">{errors.citySelection.message}</p>}
           </div>
         </div>
+
+        {/* Custom City Entry */}
+        {selectedCity === 'Other' && (
+          <div className="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-amber-800">
+              Enter City / Village / Native Place *
+            </label>
+            <input
+              {...register('customCity')}
+              placeholder="Type city or village name..."
+              className="w-full px-3.5 py-2 bg-white border border-amber-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+            />
+            {errors.customCity && <p className="text-xs text-rose-500 mt-1">{errors.customCity.message}</p>}
+          </div>
+        )}
 
         {/* Business Name / Occupation */}
         <div>
