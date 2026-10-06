@@ -110,9 +110,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- Calling Number -->
           <div>
-            <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-              <span id="lbl-phone">Contact Number (Calling)</span> <span class="text-rose-500">*</span>
-            </label>
+            <div class="flex items-center justify-between mb-1">
+              <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                <span id="lbl-phone">Contact Number (Calling)</span>
+              </label>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
+            </div>
             <div class="relative">
               <input 
                 type="tel" 
@@ -129,9 +132,12 @@
           <!-- WhatsApp Number -->
           <div>
             <div class="flex items-center justify-between mb-1">
-              <label for="whatsapp" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                <span id="lbl-whatsapp">WhatsApp Number</span> <span class="text-rose-500">*</span>
-              </label>
+              <div class="flex items-center gap-1.5">
+                <label for="whatsapp" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  <span id="lbl-whatsapp">WhatsApp Number</span>
+                </label>
+                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
+              </div>
               <label class="flex items-center gap-1 text-[11px] text-amber-700 font-semibold cursor-pointer select-none">
                 <input type="checkbox" id="sameNumber" onchange="syncWhatsApp()" class="rounded border-slate-300 text-amber-600 focus:ring-amber-500 cursor-pointer" />
                 <span id="lbl-same">Same as Number</span>
@@ -530,22 +536,8 @@
       { id: "Other", en: "Other Tradition / Sampradaya", gu: "અન્ય પરંપરા / સંપ્રદાય", hi: "अन्य परंपरा / सम्प्रदाय" }
     ];
 
-    // Popular Jain Sammaj list
+    // Jain Sammaj list (User Communities)
     const sammajList = [
-      { id: "Visa Oswal", en: "Visa Oswal", gu: "વીસા ઓસવાલ", hi: "वीसा ओसवाल" },
-      { id: "Dasa Oswal", en: "Dasa Oswal", gu: "દસા ઓસવાલ", hi: "दसा ओसवाल" },
-      { id: "Kutchi Oswal", en: "Kutchi Oswal", gu: "કચ્છી ઓસવાલ", hi: "कच्छी ओसवाल" },
-      { id: "Porwal / Porwad", en: "Porwal / Porwad", gu: "પોરવાડ / પોરવાલ", hi: "पोरवाड़ / पोरवाल" },
-      { id: "Shrimali", en: "Shrimali", gu: "શ્રીમાળી", hi: "श्रीमाली" },
-      { id: "Khandelwal", en: "Khandelwal", gu: "ખંડેલવાલ", hi: "खंडेलवाल" },
-      { id: "Parwar", en: "Parwar", gu: "પરવાર", hi: "परवार" },
-      { id: "Humad", en: "Humad", gu: "હુમડ", hi: "हुमड़" },
-      { id: "Jaiswal", en: "Jaiswal", gu: "જયસ્વાલ", hi: "जायसवाल" },
-      { id: "Narsinghpura", en: "Narsinghpura", gu: "નરસિંહપુરા", hi: "नरसिंहपुरा" },
-      { id: "Sarawagi", en: "Sarawagi", gu: "સરાવગી", hi: "सरावगी" },
-      { id: "Bhavsar Jain", en: "Bhavsar Jain", gu: "ભાવસાર જૈન", hi: "भावसार जैन" },
-
-      // Regional & Sanstha Communities
       { id: "Shree Vaav Community", en: "Shree Vaav Community", gu: "શ્રી વાવ સમાજ", hi: "श्री वाव समाज" },
       { id: "Shree Kutch Shree Vagad Saat Chovisi Community", en: "Shree Kutch Shree Vagad Saat Chovisi Community", gu: "શ્રી કચ્છ શ્રી વાગડ સાત ચોવીસી સમાજ", hi: "श्री कच्छ श्री वागड़ सात चोवीसी समाज" },
       { id: "Shree 108 Visa Shrimali Chanasma Community", en: "Shree 108 Visa Shrimali Chanasma Community", gu: "શ્રી ૧૦૮ વીસા શ્રીમાળી ચાણસ્મા સમાજ", hi: "श्री 108 वीसा श्रीमाली चाणस्मा समाज" },
@@ -566,7 +558,7 @@
       { id: "Shree Ladva (Laduaa) Shrimali Community", en: "Shree Ladva (Laduaa) Shrimali Community", gu: "શ્રી લાડવા (લાડુઆ) શ્રીમાળી સમાજ", hi: "श्री लाडवा (लाडुआ) श्रीमाली समाज" },
       { id: "Shree Ghoghari Visa Shrimali Jain Community", en: "Shree Ghoghari Visa Shrimali Jain Community", gu: "શ્રી ઘોઘારી વીસા શ્રીમાળી જૈન સમાજ", hi: "श्री घोघारी वीसा श्रीमाली जैन समाज" },
       { id: "Shree Jhalawadi Community", en: "Shree Jhalawadi Community", gu: "શ્રી ઝાલાવાડી સમાજ", hi: "श्री झालावाड़ी समाज" },
-      { id: "Shree Tristuti (Tharad) Jain Community", en: "Shree Tristuti (Tharad) Jain Community", gu: "શ્રી ત્રિસ્તુતિ (થરાદ) જૈન સમાજ", hi: "श्री त्रिस्तुति (थराद) जैन समाज" },
+      { id: "Shree Trisutik (Tharad) Jain Samaj", en: "Shree Trisutik (Tharad) Jain Samaj", gu: "શ્રી ત્રિસ્તુતિક (થરાદ) જૈન સમાજ", hi: "श्री त्रिस्तुतिक (थराद) जैन समाज" },
       { id: "Shree Bhabhar Community", en: "Shree Bhabhar Community", gu: "શ્રી ભાભર સમાજ", hi: "श्री भाभर समाज" },
       { id: "Shree Khimat Community", en: "Shree Khimat Community", gu: "શ્રી ખીમત સમાજ", hi: "श्री खीमत समाज" },
       { id: "Shree Dhanera Community", en: "Shree Dhanera Community", gu: "શ્રી ધાનેરા સમાજ", hi: "श्री धानेरा समाज" },
@@ -799,9 +791,18 @@
       const el = document.getElementById('phone');
       const icon = document.getElementById('phoneIcon');
       const err = document.getElementById('phoneError');
-      const digits = el.value.replace(/[^0-9]/g, '');
+      const val = el.value.trim();
+      const digits = val.replace(/[^0-9]/g, '');
 
-      if (!digits || digits.length < 10 || digits.length > 15) {
+      // Optional: valid if empty
+      if (!val) {
+        el.classList.remove('border-rose-400', 'bg-rose-50/20', 'border-emerald-500', 'bg-emerald-50/10');
+        icon.classList.add('hidden');
+        err.classList.add('hidden');
+        return true;
+      }
+
+      if (digits.length < 10 || digits.length > 15) {
         showStatus(el, icon, err, false, translations[currentLang].err_phone);
         return false;
       }
@@ -813,9 +814,18 @@
       const el = document.getElementById('whatsapp');
       const icon = document.getElementById('whatsappIcon');
       const err = document.getElementById('whatsappError');
-      const digits = el.value.replace(/[^0-9]/g, '');
+      const val = el.value.trim();
+      const digits = val.replace(/[^0-9]/g, '');
 
-      if (!digits || digits.length < 10 || digits.length > 15) {
+      // Optional: valid if empty
+      if (!val) {
+        el.classList.remove('border-rose-400', 'bg-rose-50/20', 'border-emerald-500', 'bg-emerald-50/10');
+        icon.classList.add('hidden');
+        err.classList.add('hidden');
+        return true;
+      }
+
+      if (digits.length < 10 || digits.length > 15) {
         showStatus(el, icon, err, false, translations[currentLang].err_wa);
         return false;
       }

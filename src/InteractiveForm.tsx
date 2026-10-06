@@ -8,12 +8,16 @@ export const JainConnectSchema = z.object({
     .min(2, 'Name must be at least 2 characters'),
   number: z
     .string()
-    .min(10, 'Contact number must be at least 10 digits')
-    .max(15, 'Invalid phone number length'),
+    .optional()
+    .refine((val) => !val || (val.replace(/[^0-9]/g, '').length >= 10 && val.replace(/[^0-9]/g, '').length <= 15), {
+      message: 'Contact number must be between 10 and 15 digits',
+    }),
   whatsappNumber: z
     .string()
-    .min(10, 'WhatsApp number must be at least 10 digits')
-    .max(15, 'Invalid phone number length'),
+    .optional()
+    .refine((val) => !val || (val.replace(/[^0-9]/g, '').length >= 10 && val.replace(/[^0-9]/g, '').length <= 15), {
+      message: 'WhatsApp number must be between 10 and 15 digits',
+    }),
   sampradaya: z
     .string()
     .min(1, 'Please select your Jain Sampradaya / Panth'),
@@ -278,9 +282,12 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
         {/* Number & WhatsApp */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-              Calling Number *
-            </label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Calling Number
+              </label>
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
+            </div>
             <input
               type="tel"
               {...register('number')}
@@ -296,9 +303,12 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
 
           <div>
             <div className="flex items-center justify-between mb-1">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                WhatsApp Number *
-              </label>
+              <div className="flex items-center gap-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  WhatsApp Number
+                </label>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
+              </div>
               <label className="flex items-center gap-1 text-[11px] text-amber-700 font-semibold cursor-pointer">
                 <input
                   type="checkbox"
@@ -348,18 +358,6 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
           >
             <option value="">Select your Sammaj...</option>
-            <option value="Visa Oswal">Visa Oswal</option>
-            <option value="Dasa Oswal">Dasa Oswal</option>
-            <option value="Kutchi Oswal">Kutchi Oswal</option>
-            <option value="Porwal / Porwad">Porwal / Porwad</option>
-            <option value="Shrimali">Shrimali</option>
-            <option value="Khandelwal">Khandelwal</option>
-            <option value="Parwar">Parwar</option>
-            <option value="Humad">Humad</option>
-            <option value="Jaiswal">Jaiswal</option>
-            <option value="Narsinghpura">Narsinghpura</option>
-            <option value="Sarawagi">Sarawagi</option>
-            <option value="Bhavsar Jain">Bhavsar Jain</option>
             <option value="Shree Vaav Community">Shree Vaav Community</option>
             <option value="Shree Kutch Shree Vagad Saat Chovisi Community">Shree Kutch Shree Vagad Saat Chovisi Community</option>
             <option value="Shree 108 Visa Shrimali Chanasma Community">Shree 108 Visa Shrimali Chanasma Community</option>
@@ -380,7 +378,7 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             <option value="Shree Ladva (Laduaa) Shrimali Community">Shree Ladva (Laduaa) Shrimali Community</option>
             <option value="Shree Ghoghari Visa Shrimali Jain Community">Shree Ghoghari Visa Shrimali Jain Community</option>
             <option value="Shree Jhalawadi Community">Shree Jhalawadi Community</option>
-            <option value="Shree Tristuti (Tharad) Jain Community">Shree Tristuti (Tharad) Jain Community</option>
+            <option value="Shree Trisutik (Tharad) Jain Samaj">Shree Trisutik (Tharad) Jain Samaj</option>
             <option value="Shree Bhabhar Community">Shree Bhabhar Community</option>
             <option value="Shree Khimat Community">Shree Khimat Community</option>
             <option value="Shree Dhanera Community">Shree Dhanera Community</option>
