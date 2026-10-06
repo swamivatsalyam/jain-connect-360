@@ -15,12 +15,12 @@
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-amber-50/60 via-slate-50 to-slate-100 text-slate-900 min-h-screen py-6 sm:py-10 px-4 antialiased">
-  <div class="max-w-xl mx-auto">
+<body class="bg-gradient-to-b from-amber-50/60 via-slate-50 to-slate-100 text-slate-900 min-h-screen py-8 px-4 antialiased">
+  <div class="max-w-3xl mx-auto">
     
     <!-- Top Bar: Language Switcher -->
     <div class="flex justify-end mb-4">
-      <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-xs p-1 rounded-2xl border border-amber-200/80 shadow-xs text-xs font-semibold">
+      <div class="inline-flex items-center gap-1 bg-white p-1 rounded-2xl border border-amber-200/80 shadow-xs text-xs font-semibold">
         <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="px-3 py-1.5 rounded-xl bg-amber-600 text-white shadow-xs transition">English</button>
         <button type="button" onclick="setLanguage('gu')" id="lang-btn-gu" class="px-3 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition">ગુજરાતી</button>
         <button type="button" onclick="setLanguage('hi')" id="lang-btn-hi" class="px-3 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition">हिंदी</button>
@@ -28,10 +28,10 @@
     </div>
 
     <!-- Top Branding & Emblem -->
-    <div class="text-center mb-6">
-      <div class="inline-flex items-center justify-center w-14 h-14 rounded-3xl bg-gradient-to-tr from-amber-600 to-amber-500 text-white shadow-lg shadow-amber-500/25 mb-3 border-2 border-amber-200">
-        <!-- Community Connection Icon -->
-        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-gradient-to-tr from-amber-600 to-amber-500 text-white shadow-xl shadow-amber-500/25 mb-4 border-2 border-amber-200">
+        <!-- Dharmachakra / Community Connection Icon -->
+        <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <circle cx="12" cy="12" r="4"></circle>
           <line x1="12" y1="2" x2="12" y2="6"></line>
@@ -41,28 +41,28 @@
           <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
         </svg>
       </div>
-      <h1 id="txt-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+      <h1 id="txt-title" class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
         Jain Connect 360°
       </h1>
-      <p id="txt-subtitle" class="text-xs sm:text-sm font-semibold text-amber-700 mt-1">
+      <p id="txt-subtitle" class="mt-2 text-base font-semibold text-amber-700 max-w-md mx-auto">
         Connecting Every Jain
       </p>
 
       <!-- 3 Sacred Goals / Pillars -->
-      <div class="flex items-center justify-center flex-wrap gap-2 mt-3">
-        <span id="badge-dharam" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-amber-100/90 text-amber-900 border border-amber-300 shadow-xs">
+      <div class="flex items-center justify-center flex-wrap gap-2 mt-3.5">
+        <span id="badge-dharam" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 shadow-xs">
           🛡️ Dharam Raksha
         </span>
-        <span id="badge-tirth" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-amber-100/90 text-amber-900 border border-amber-300 shadow-xs">
+        <span id="badge-tirth" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 shadow-xs">
           🏛️ Tirth Raksha
         </span>
-        <span id="badge-swami" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-amber-100/90 text-amber-900 border border-amber-300 shadow-xs">
+        <span id="badge-swami" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 shadow-xs">
           🤝 Swami Vatsalyam
         </span>
       </div>
 
       <!-- Sacred Purpose & Motivation Q&A Card -->
-      <div class="mt-4 text-left p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-50/90 to-orange-50/60 border border-amber-200/90 shadow-xs space-y-2">
+      <div class="mt-4 max-w-xl mx-auto text-left p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-50/90 to-orange-50/60 border border-amber-200/90 shadow-xs space-y-2">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
           <span id="txt-purpose-badge" class="text-[11px] font-extrabold uppercase tracking-wider text-amber-900">
@@ -79,275 +79,360 @@
         </div>
       </div>
 
-      <p id="txt-desc" class="mt-3 text-xs text-slate-500 max-w-sm mx-auto">
-        Please fill in your basic details below to register and connect with the community directory.
+      <p id="txt-desc" class="mt-3.5 text-xs text-slate-500 max-w-md mx-auto">
+        Please fill out your verified details to connect with the community directory and stay updated with initiatives.
       </p>
     </div>
 
-    <!-- Form Container -->
-    <div id="formCard" class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 sm:p-8">
-      <form id="jainForm" onsubmit="handleFormSubmit(event)" novalidate class="space-y-4">
-        
-        <!-- 1. Full Name -->
-        <div>
-          <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            <span id="lbl-name">Full Name</span> <span class="text-rose-500">*</span>
-          </label>
-          <div class="relative">
+    <!-- Main Card with Navigation Tabs -->
+    <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-100 overflow-hidden">
+      
+      <!-- Top Navigation Tabs -->
+      <div class="border-b border-slate-100 bg-slate-50/70 px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-600">Member Verification Active</span>
+        </div>
+        <div class="flex items-center gap-1 bg-slate-200/70 p-1 rounded-xl text-xs font-semibold">
+          <button id="tabFormBtn" onclick="switchTab('form')" class="px-4 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition">Form</button>
+          <button id="tabDataBtn" onclick="switchTab('data')" class="px-4 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
+            <span>Collected Records</span>
+            <span id="dataBadge" class="bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full text-[10px]">0</span>
+          </button>
+          <button id="tabSettingsBtn" onclick="switchTab('settings')" class="px-4 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">Endpoints</button>
+        </div>
+      </div>
+
+      <!-- TAB 1: FORM -->
+      <div id="viewForm" class="p-6 sm:p-10 space-y-6">
+        <form id="jainForm" onsubmit="handleFormSubmit(event)" novalidate class="space-y-5">
+          
+          <!-- Full Name -->
+          <div>
+            <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              <span id="lbl-name">Full Name</span> <span class="text-rose-500">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="fullName" 
+                placeholder="e.g. Rameshchandra M. Shah" 
+                oninput="validateName()"
+                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+              />
+              <span id="nameIcon" class="absolute right-3.5 top-3.5 hidden"></span>
+            </div>
+            <p id="nameError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
+          </div>
+
+          <!-- Contact Number & WhatsApp Number in 2 columns -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Calling Number -->
+            <div>
+              <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                <span id="lbl-phone">Contact Number (Calling)</span> <span class="text-rose-500">*</span>
+              </label>
+              <div class="relative">
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  placeholder="e.g. 9876543210" 
+                  oninput="handlePhoneInput()"
+                  class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+                />
+                <span id="phoneIcon" class="absolute right-3.5 top-3.5 hidden"></span>
+              </div>
+              <p id="phoneError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
+            </div>
+
+            <!-- WhatsApp Number -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-1.5">
+                  <label for="whatsapp" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                    <span id="lbl-whatsapp">WhatsApp Number</span>
+                  </label>
+                  <span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
+                </div>
+                <label class="flex items-center gap-1.5 text-xs text-amber-700 font-medium cursor-pointer select-none">
+                  <input type="checkbox" id="sameNumber" onchange="syncWhatsApp()" class="rounded border-slate-300 text-amber-600 focus:ring-amber-500 cursor-pointer" />
+                  <span id="lbl-same">Same as Number</span>
+                </label>
+              </div>
+              <div class="relative">
+                <input 
+                  type="tel" 
+                  id="whatsapp" 
+                  placeholder="e.g. 9876543210" 
+                  oninput="validateWhatsApp()"
+                  class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+                />
+                <span id="whatsappIcon" class="absolute right-3.5 top-3.5 hidden"></span>
+              </div>
+              <p id="whatsappError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
+            </div>
+          </div>
+
+          <!-- Jain Sampradaya / Panth -->
+          <div>
+            <label for="sampradayaSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              <span id="lbl-sampradaya">Jain Sampradaya / Panth</span> <span class="text-rose-500">*</span>
+            </label>
+            <select 
+              id="sampradayaSelect" 
+              onchange="validateSampradaya()"
+              class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+            >
+              <!-- Dynamic -->
+            </select>
+            <p id="sampradayaError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
+          </div>
+
+          <!-- Name of Sammaj (with manual entry fallback) -->
+          <div>
+            <label for="sammajSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              <span id="lbl-sammaj">Name of Sammaj</span> <span class="text-rose-500">*</span>
+            </label>
+            <select 
+              id="sammajSelect" 
+              onchange="handleSammajSelection()"
+              class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+            >
+              <!-- Dynamic -->
+            </select>
+            <p id="sammajSelectError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
+          </div>
+
+          <!-- Custom Sammaj Entry -->
+          <div id="customSammajBox" class="hidden p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2">
+            <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+              <i data-lucide="edit-3" class="w-4 h-4"></i>
+              <span id="lbl-custom-sammaj">Enter Your Sammaj Name</span> <span class="text-rose-500">*</span>
+            </div>
             <input 
               type="text" 
-              id="fullName" 
-              placeholder="e.g. Rameshchandra M. Shah" 
-              oninput="validateName()"
-              class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+              id="customSammaj" 
+              placeholder="e.g. Shrimali, Porwal, Kutchi Dasa Oswal..." 
+              oninput="validateCustomSammaj()"
+              class="w-full px-4 py-2.5 bg-white border border-amber-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
             />
-            <span id="nameIcon" class="absolute right-3.5 top-3 hidden"></span>
+            <p id="customSammajError" class="text-xs text-rose-500 hidden"></p>
           </div>
-          <p id="nameError" class="text-xs text-rose-500 mt-1 hidden"></p>
-        </div>
 
-        <!-- 2. Calling Number & WhatsApp Number -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Calling Number -->
-          <div>
-            <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-              <span id="lbl-phone">Contact Number (Calling)</span> <span class="text-rose-500">*</span>
-            </label>
-            <div class="relative">
-              <input 
-                type="tel" 
-                id="phone" 
-                placeholder="e.g. 9876543210" 
-                oninput="handlePhoneInput()"
-                class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
-              />
-              <span id="phoneIcon" class="absolute right-3.5 top-3 hidden"></span>
+          <!-- State & City in 2 columns -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- State -->
+            <div>
+              <label for="stateSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                <span id="lbl-state">State</span> <span class="text-rose-500">*</span>
+              </label>
+              <select 
+                id="stateSelect" 
+                onchange="handleStateChange()"
+                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+              >
+                <!-- Dynamic -->
+              </select>
+              <p id="stateError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
             </div>
-            <p id="phoneError" class="text-xs text-rose-500 mt-1 hidden"></p>
+
+            <!-- City -->
+            <div>
+              <label for="citySelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                <span id="lbl-city">City / Town</span> <span class="text-rose-500">*</span>
+              </label>
+              <select 
+                id="citySelect" 
+                onchange="handleCityChange()"
+                class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
+              >
+                <!-- Dynamic -->
+              </select>
+              <p id="cityError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
+            </div>
           </div>
 
-          <!-- WhatsApp Number -->
+          <!-- Custom City Entry (if "Other" chosen) -->
+          <div id="customCityBox" class="hidden p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2">
+            <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <span id="lbl-custom-city">Enter City / Village / Native Place</span> <span class="text-rose-500">*</span>
+            </div>
+            <input 
+              type="text" 
+              id="customCity" 
+              placeholder="Type your city or village name..." 
+              oninput="validateCustomCity()"
+              class="w-full px-4 py-2.5 bg-white border border-amber-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+            />
+            <p id="customCityError" class="text-xs text-rose-500 hidden"></p>
+          </div>
+
+          <!-- Business Name / Occupation -->
           <div>
-            <div class="flex items-center justify-between mb-1">
-              <div class="flex items-center gap-1.5">
-                <label for="whatsapp" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                  <span id="lbl-whatsapp">WhatsApp Number</span>
-                </label>
-                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500 uppercase tracking-wider">Optional</span>
+            <label for="businessName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              <span id="lbl-business">Business Name / Occupation (What do you do?)</span> <span class="text-rose-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="businessName" 
+              placeholder="e.g. Mahavir Textiles / Diamond Merchant / Software Engineer / Student" 
+              oninput="validateBusiness()"
+              class="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
+            />
+            <p id="businessError" class="text-xs text-rose-500 mt-1.5 hidden"></p>
+          </div>
+
+          <!-- 7. Volunteer for Jinshashan (Optional) -->
+          <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-200/80 space-y-3">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                <i data-lucide="heart-handshake" class="w-5 h-5"></i>
               </div>
-              <label class="flex items-center gap-1 text-[11px] text-amber-700 font-semibold cursor-pointer select-none">
-                <input type="checkbox" id="sameNumber" onchange="syncWhatsApp()" class="rounded border-slate-300 text-amber-600 focus:ring-amber-500 cursor-pointer" />
-                <span id="lbl-same">Same as Number</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span id="lbl-volunteer-title" class="text-sm font-bold text-slate-900 leading-snug">
+                    Do you want to become a volunteer for Jinshashan?
+                  </span>
+                  <span id="lbl-volunteer-opt" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 uppercase tracking-wider">
+                    Optional
+                  </span>
+                </div>
+                <p id="lbl-volunteer-sub" class="text-xs text-slate-500 mt-0.5">
+                  Join hands in community initiatives, youth events, and Jinshasan seva.
+                </p>
+              </div>
+            </div>
+
+            <!-- Radio Options (Yes / No) -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <label id="opt-volunteer-yes" class="relative flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs sm:text-sm font-bold text-slate-700 cursor-pointer hover:border-amber-400 transition shadow-xs select-none">
+                <input type="radio" name="volunteer" value="Yes" onchange="handleVolunteerChange(this.value)" class="cursor-pointer text-amber-600 focus:ring-amber-500" />
+                <span id="lbl-vol-yes">✨ Yes</span>
+              </label>
+
+              <label id="opt-volunteer-no" class="relative flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs sm:text-sm font-semibold text-slate-600 cursor-pointer hover:border-slate-300 transition shadow-xs select-none">
+                <input type="radio" name="volunteer" value="No" onchange="handleVolunteerChange(this.value)" class="cursor-pointer text-slate-600 focus:ring-slate-400" />
+                <span id="lbl-vol-no">No</span>
               </label>
             </div>
-            <div class="relative">
-              <input 
-                type="tel" 
-                id="whatsapp" 
-                placeholder="e.g. 9876543210" 
-                oninput="validateWhatsApp()"
-                class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
-              />
-              <span id="whatsappIcon" class="absolute right-3.5 top-3 hidden"></span>
-            </div>
-            <p id="whatsappError" class="text-xs text-rose-500 mt-1 hidden"></p>
-          </div>
-        </div>
 
-        <!-- 3. Jain Sampradaya / Panth (Dropdown) -->
-        <div>
-          <label for="sampradayaSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            <span id="lbl-sampradaya">Jain Sampradaya / Panth</span> <span class="text-rose-500">*</span>
-          </label>
-          <select 
-            id="sampradayaSelect" 
-            onchange="validateSampradaya()"
-            class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
-          >
-            <!-- Dynamic options via JS -->
-          </select>
-          <p id="sampradayaError" class="text-xs text-rose-500 mt-1 hidden"></p>
-        </div>
-
-        <!-- 4. Name of Sammaj (Dropdown with manual entry fallback) -->
-        <div>
-          <label for="sammajSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            <span id="lbl-sammaj">Name of Sammaj</span> <span class="text-rose-500">*</span>
-          </label>
-          <select 
-            id="sammajSelect" 
-            onchange="handleSammajSelection()"
-            class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
-          >
-            <!-- Dynamic options via JS -->
-          </select>
-          <p id="sammajSelectError" class="text-xs text-rose-500 mt-1 hidden"></p>
-        </div>
-
-        <!-- Custom Sammaj Name Entry (Shows if user chooses Other/Not Found) -->
-        <div id="customSammajBox" class="hidden p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-1">
-          <label class="block text-xs font-bold uppercase tracking-wider text-amber-800">
-            <span id="lbl-custom-sammaj">Enter Your Sammaj Name</span> <span class="text-rose-500">*</span>
-          </label>
-          <input 
-            type="text" 
-            id="customSammaj" 
-            placeholder="e.g. Shrimali, Kutchi Dasa Oswal, Porwal..." 
-            oninput="validateCustomSammaj()"
-            class="w-full px-3.5 py-2 bg-white border border-amber-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
-          />
-          <p id="customSammajError" class="text-xs text-rose-500 hidden"></p>
-        </div>
-
-        <!-- 5. State & City (Indian States & Cities Dropdown) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- State -->
-          <div>
-            <label for="stateSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-              <span id="lbl-state">State</span> <span class="text-rose-500">*</span>
-            </label>
-            <select 
-              id="stateSelect" 
-              onchange="handleStateChange()"
-              class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
-            >
-              <!-- Dynamic Indian states -->
-            </select>
-            <p id="stateError" class="text-xs text-rose-500 mt-1 hidden"></p>
-          </div>
-
-          <!-- City -->
-          <div>
-            <label for="citySelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-              <span id="lbl-city">City / Town</span> <span class="text-rose-500">*</span>
-            </label>
-            <select 
-              id="citySelect" 
-              onchange="handleCityChange()"
-              class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition cursor-pointer"
-            >
-              <!-- Dynamic cities -->
-            </select>
-            <p id="cityError" class="text-xs text-rose-500 mt-1 hidden"></p>
-          </div>
-        </div>
-
-        <!-- Custom City Entry (if "Other" chosen) -->
-        <div id="customCityBox" class="hidden p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-1">
-          <label class="block text-xs font-bold uppercase tracking-wider text-amber-800">
-            <span id="lbl-custom-city">Enter City / Village / Native Place</span> <span class="text-rose-500">*</span>
-          </label>
-          <input 
-            type="text" 
-            id="customCity" 
-            placeholder="Type your city or village name..." 
-            oninput="validateCustomCity()"
-            class="w-full px-3.5 py-2 bg-white border border-amber-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
-          />
-          <p id="customCityError" class="text-xs text-rose-500 hidden"></p>
-        </div>
-
-        <!-- 6. Business Name / Occupation -->
-        <div>
-          <label for="businessName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            <span id="lbl-business">Business Name / Occupation (What do you do?)</span> <span class="text-rose-500">*</span>
-          </label>
-          <input 
-            type="text" 
-            id="businessName" 
-            placeholder="e.g. Mahavir Textiles / Diamond Merchant / Software Engineer / Student" 
-            oninput="validateBusiness()"
-            class="w-full px-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
-          />
-          <p id="businessError" class="text-xs text-rose-500 mt-1 hidden"></p>
-        </div>
-
-        <!-- 7. Volunteer for Jinshashan (Optional) -->
-        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-200/80 space-y-3">
-          <div class="flex items-start gap-3">
-            <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-              <i data-lucide="heart-handshake" class="w-5 h-5"></i>
-            </div>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap">
-                <span id="lbl-volunteer-title" class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                  Do you want to become a volunteer for Jinshashan?
-                </span>
-                <span id="lbl-volunteer-opt" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 uppercase tracking-wider">
-                  Optional
-                </span>
-              </div>
-              <p id="lbl-volunteer-sub" class="text-[11px] sm:text-xs text-slate-500 mt-0.5">
-                Join hands in community initiatives, youth events, and Jinshasan seva.
-              </p>
+            <!-- Subtle Anumodna message when Yes is picked -->
+            <div id="volunteerNote" class="hidden text-xs text-amber-800 font-medium bg-amber-100/70 border border-amber-200/60 px-3.5 py-2 rounded-xl flex items-center gap-2">
+              <span class="text-base">🙏</span>
+              <span id="lbl-vol-anumodna">Anumodna! Thank you for your noble spirit of seva.</span>
             </div>
           </div>
 
-          <!-- Radio Options (Yes / No) -->
-          <div class="grid grid-cols-2 gap-3 pt-1">
-            <label id="opt-volunteer-yes" class="relative flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs sm:text-sm font-bold text-slate-700 cursor-pointer hover:border-amber-400 transition shadow-xs select-none">
-              <input type="radio" name="volunteer" value="Yes" onchange="handleVolunteerChange(this.value)" class="cursor-pointer text-amber-600 focus:ring-amber-500" />
-              <span id="lbl-vol-yes">✨ Yes</span>
-            </label>
+          <!-- Status Alert -->
+          <div id="statusAlert" class="hidden p-4 rounded-xl text-sm font-semibold transition-all"></div>
 
-            <label id="opt-volunteer-no" class="relative flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs sm:text-sm font-semibold text-slate-600 cursor-pointer hover:border-slate-300 transition shadow-xs select-none">
-              <input type="radio" name="volunteer" value="No" onchange="handleVolunteerChange(this.value)" class="cursor-pointer text-slate-600 focus:ring-slate-400" />
-              <span id="lbl-vol-no">No</span>
-            </label>
-          </div>
-
-          <!-- Subtle Anumodna message when Yes is picked -->
-          <div id="volunteerNote" class="hidden text-[11px] text-amber-800 font-medium bg-amber-100/70 border border-amber-200/60 px-3 py-2 rounded-xl flex items-center gap-2">
-            <span class="text-sm">🙏</span>
-            <span id="lbl-vol-anumodna">Anumodna! Thank you for your noble spirit of seva.</span>
-          </div>
-        </div>
-
-        <!-- Error Alert -->
-        <div id="statusAlert" class="hidden p-3.5 rounded-xl text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200"></div>
-
-        <!-- Submit Button -->
-        <div class="pt-3">
-          <button 
-            type="submit" 
-            id="submitButton"
-            class="w-full py-3.5 bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-bold text-sm rounded-xl shadow-lg shadow-amber-500/25 transition cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
-          >
-            <span id="submitSpinner" class="hidden animate-spin">
-              <i data-lucide="loader-2" class="w-4 h-4"></i>
+          <!-- Submit Button -->
+          <div class="pt-4 flex items-center justify-between border-t border-slate-100">
+            <span class="text-xs text-slate-500">
+              <span class="text-rose-500">*</span> All fields verified
             </span>
-            <span id="submitText">Submit Details</span>
-          </button>
+            <button 
+              type="submit" 
+              id="submitButton"
+              class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-bold text-sm rounded-xl shadow-lg shadow-amber-500/25 transition cursor-pointer disabled:opacity-50"
+            >
+              <span id="submitSpinner" class="hidden animate-spin">
+                <i data-lucide="loader-2" class="w-4 h-4"></i>
+              </span>
+              <span id="submitText">Submit Details</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- TAB 2: COLLECTED RECORDS -->
+      <div id="viewData" class="hidden p-6 sm:p-10 space-y-6">
+        <div class="flex flex-wrap items-center justify-between border-b border-slate-100 pb-4 gap-3">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Registered Members</h2>
+            <p class="text-xs text-slate-500">Submissions verified and recorded in Jain Connect 360°</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="exportCSV()" class="px-3.5 py-2 border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold rounded-lg transition flex items-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              Export to Excel/CSV
+            </button>
+            <button onclick="clearSubmissions()" class="px-3 py-2 text-rose-600 hover:bg-rose-50 text-xs font-semibold rounded-lg transition">
+              Clear All
+            </button>
+          </div>
         </div>
 
-      </form>
-    </div>
+        <div id="recordsList" class="space-y-3">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
 
-    <!-- Thank You Confirmation Screen (Hidden until submitted) -->
-    <div id="successCard" class="hidden bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 text-center space-y-4">
-      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
-        <i data-lucide="check-check" class="w-8 h-8"></i>
+      <!-- TAB 3: ENDPOINTS -->
+      <div id="viewSettings" class="hidden p-6 sm:p-10 space-y-6">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">Cloud Storage Endpoints</h2>
+          <p class="text-xs text-slate-500">Configure where you want to collect and view submissions permanently.</p>
+        </div>
+
+        <!-- Google Sheets Webhook -->
+        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
+                GS
+              </div>
+              <div>
+                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Google Sheets Webhook URL</h3>
+                <p class="text-[11px] text-slate-500">Directly adds each member as a row in your community spreadsheet</p>
+              </div>
+            </div>
+            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Recommended</span>
+          </div>
+          <input 
+            type="url" 
+            id="googleUrlInput" 
+            value="https://script.google.com/macros/s/AKfycbx_gKg7VwmgAIAovuZHZTs1hlzZBX6x8XhSkjCVj9OF35ocBAGH-tWwLUNZHyNX0FJYkw/exec"
+            placeholder="https://script.google.com/macros/s/AKfycb.../exec"
+            class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          />
+        </div>
+
+        <!-- Supabase -->
+        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs">
+                SB
+              </div>
+              <div>
+                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Supabase REST Endpoint</h3>
+                <p class="text-[11px] text-slate-500">PostgreSQL cloud database</p>
+              </div>
+            </div>
+          </div>
+          <input 
+            type="url" 
+            id="supabaseUrlInput" 
+            placeholder="https://your-project.supabase.co/rest/v1/jain_connect_members"
+            class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          />
+          <input 
+            type="password" 
+            id="supabaseKeyInput" 
+            placeholder="Supabase Anon Public Key"
+            class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          />
+        </div>
+
       </div>
-      <div>
-        <h2 id="txt-success-title" class="text-2xl font-bold text-slate-900">Jai Jinendra!</h2>
-        <p id="txt-success-subtitle" class="text-sm font-semibold text-amber-700 mt-1">Registration Successful</p>
-      </div>
-      <p id="txt-success-msg" class="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
-        Your information has been verified and registered with <strong>Jain Connect 360°</strong>. Thank you for connecting!
-      </p>
-      <div class="pt-4">
-        <button 
-          onclick="resetForNewEntry()" 
-          id="btn-submit-another"
-          class="px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition cursor-pointer"
-        >
-          Submit Another Entry
-        </button>
-      </div>
+
     </div>
 
     <!-- Community & Support Section (WhatsApp QR + Payment QR) -->
-    <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 sm:p-8 space-y-6">
+    <div class="mt-8 bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 sm:p-8 space-y-6">
       <div class="text-center space-y-1.5">
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200 shadow-xs">
           <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
@@ -419,20 +504,14 @@
       </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Note -->
     <div class="mt-6 text-center text-xs text-slate-400">
-      Jain Connect 360° • Connecting Every Jain
+      Jain Connect 360° • Connecting Every Jain • Jai Jinendra
     </div>
 
   </div>
 
   <script>
-    // ========================================================
-    // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE:
-    // ========================================================
-    const GOOGLE_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbx_gKg7VwmgAIAovuZHZTs1hlzZBX6x8XhSkjCVj9OF35ocBAGH-tWwLUNZHyNX0FJYkw/exec";
-
-    // Supported Languages Dictionary
     const translations = {
       en: {
         title: "Jain Connect 360°",
@@ -444,7 +523,7 @@
         purpose_q: "Question: How do I fill out this form?",
         purpose_a_prefix: "Answer",
         purpose_a: "Through this form, in the future, if you ever need to increase the business level of your family, instead of personally benefiting from it, the idea is that your fellow Jain brothers can purchase through you and the money is used in the right place. With this purpose, and in matters related to defending the faith, you can volunteer for Jain Connect 360, which is a platform for protecting the religion.",
-        desc: "Please fill in your basic details below to register and connect with the community directory.",
+        desc: "Please fill out your verified details to connect with the community directory and stay updated with initiatives.",
         name: "Full Name",
         name_placeholder: "e.g. Rameshchandra M. Shah",
         phone: "Contact Number (Calling)",
@@ -482,10 +561,6 @@
         vol_yes: "✨ Yes",
         vol_no: "No",
         vol_anumodna: "Anumodna! Thank you for your noble spirit of seva.",
-        success_title: "Jai Jinendra!",
-        success_subtitle: "Registration Successful",
-        success_msg: "Your information has been verified and registered with <strong>Jain Connect 360°</strong>. Thank you for connecting!",
-        submit_another: "Submit Another Entry",
         community_heading: "Official Community & Seva Support",
         community_subheading: "Connect with fellow Jains and contribute towards our sacred mission.",
         wa_card_title: "Join WhatsApp Community",
@@ -505,7 +580,7 @@
         purpose_q: "પ્રશ્ન: આ ફોર્મ શા માટે ભરવું અને તેનો હેતુ શું છે?",
         purpose_a_prefix: "જવાબ",
         purpose_a: "આ ફોર્મ દ્વારા ભવિષ્યમાં તમારા પરિવારનો વ્યાપાર-રોજગાર વધારવા માટે, માત્ર અંગત લાભ ખાતર નહીં, પરંતુ સાધર્મિક જૈન ભાઈઓ આપણી પાસેથી જ ખરીદી કરે અને લક્ષ્મીનો સદુપયોગ સાચી જગ્યાએ ધર્મકાર્યમાં થાય તે મુખ્ય વિચાર છે. આ પવિત્ર હેતુ સાથે તથા ધર્મ રક્ષાના કાર્યોમાં આપ જૈન કનેક્ટ ૩૬૦ સાથે જોડાઈને શાસન રક્ષાના આ પ્લેટફોર્મ પર સ્વયંસેવક બની શકો છો.",
-        desc: "સમુદાય ડિરેક્ટરી સાથે જોડાવા માટે કૃપા કરીને નીચે તમારી પ્રાથમિક વિગતો ભરો.",
+        desc: "સમુદાય ડિરેક્ટરી સાથે જોડાવા અને સંપ્રદાયની પ્રવૃત્તિઓથી અપડેટ રહેવા માટે કૃપા કરીને નીચે તમારી પ્રાથમિક વિગતો ભરો.",
         name: "પૂરું નામ",
         name_placeholder: "દા.ત. રમેશચંદ્ર એમ. શાહ",
         phone: "સંપર્ક નંબર (કોલિંગ)",
@@ -543,10 +618,6 @@
         vol_yes: "✨ હા (Yes)",
         vol_no: "ના (No)",
         vol_anumodna: "અનુમોદના! જિનશાસન સેવાની આપની ઉમદા ભાવના બદલ ખૂબ ખૂબ આભાર.",
-        success_title: "જય જિનેન્દ્ર!",
-        success_subtitle: "નોંધણી સફળ થઈ છે",
-        success_msg: "તમારી વિગતો <strong>જૈન કનેક્ટ 360°</strong>માં સુરક્ષિત રીતે નોંધાઈ ગઈ છે. જોડાવા બદલ ખૂબ ખૂબ આભાર!",
-        submit_another: "બીજી એન્ટ્રી સબમિટ કરો",
         community_heading: "સામુહિક જોડાણ અને સેવા સહયોગ",
         community_subheading: "સાધર્મિક બંધુઓ સાથે જોડાઓ અને શાસન રક્ષાના પાવન કાર્યમાં સહભાગી બનો.",
         wa_card_title: "વોટ્સએપ કોમ્યુનિટીમાં જોડાઓ",
@@ -566,7 +637,7 @@
         purpose_q: "प्रश्न: यह फॉर्म क्यों भरें और इसका क्या उद्देश्य है?",
         purpose_a_prefix: "उत्तर",
         purpose_a: "इस फॉर्म के माध्यम से भविष्य में आपके परिवार के व्यापार की वृद्धि हेतु, केवल व्यक्तिगत लाभ के लिए नहीं, बल्कि हमारे साथी जैन भाई आपसे ही खरीदारी करें और धन का सदुपयोग सही स्थान पर धर्मकार्य में हो — यही मुख्य विचार है। इसी पावन उद्देश्य के साथ तथा धर्म की रक्षा से जुड़े कार्यों में आप जैन कनेक्ट 360 से जुड़कर शासन रक्षा के इस मंच पर स्वयंसेवक बन सकते हैं।",
-        desc: "समुदाय डायरेक्टरी से जुड़ने के लिए कृपया नीचे अपना प्राथमिक विवरण भरें।",
+        desc: "समुदाय डायरेक्टरी से जुड़ने और समाज की गतिविधियों से अपडेट रहने के लिए कृपया नीचे अपना प्राथमिक विवरण भरें।",
         name: "पूरा नाम",
         name_placeholder: "उदा. रमेशचंद्र एम. शाह",
         phone: "संपर्क नंबर (कॉलिंग)",
@@ -604,10 +675,6 @@
         vol_yes: "✨ हाँ (Yes)",
         vol_no: "नहीं (No)",
         vol_anumodna: "अनुमोदना! जिनशासन सेवा की आपकी पावन भावना हेतु धन्यवाद।",
-        success_title: "जय जिनेन्द्र!",
-        success_subtitle: "पंजीकरण सफल रहा",
-        success_msg: "आपकी जानकारी <strong>जैन कनेक्ट 360°</strong> में सुरक्षित रूप से दर्ज कर ली गई है। जुड़ने के लिए धन्यवाद!",
-        submit_another: "दूसरा विवरण सबमिट करें",
         community_heading: "सामुदायिक जुड़ाव एवं सेवा सहयोग",
         community_subheading: "साधार्मिक बंधुओं से जुड़ें और शासन रक्षा के पावन कार्य में सहभागी बनें।",
         wa_card_title: "व्हाट्सएप कम्युनिटी से जुड़ें",
@@ -621,7 +688,6 @@
 
     let currentLang = 'en';
 
-    // Sampradaya / Panth list
     const sampradayaList = [
       { id: "Shwetambar Murtipujak", en: "Shwetambar Murtipujak", gu: "શ્વેતાંબર મૂર્તિપૂજક", hi: "श्वेतांबर मूर्तिपूजक" },
       { id: "Digambar", en: "Digambar", gu: "દિગંબર", hi: "दिगंबर" },
@@ -630,7 +696,6 @@
       { id: "Other", en: "Other Tradition / Sampradaya", gu: "અન્ય પરંપરા / સંપ્રદાય", hi: "अन्य परंपरा / सम्प्रदाय" }
     ];
 
-    // Jain Sammaj list (User Communities)
     const sammajList = [
       { id: "Shree Vaav Community", en: "Shree Vaav Community", gu: "શ્રી વાવ સમાજ", hi: "श्री वाव समाज" },
       { id: "Shree Kutch Shree Vagad Saat Chovisi Community", en: "Shree Kutch Shree Vagad Saat Chovisi Community", gu: "શ્રી કચ્છ શ્રી વાગડ સાત ચોવીસી સમાજ", hi: "श्री कच्छ श्री वागड़ सात चोवीसी समाज" },
@@ -659,7 +724,6 @@
       { id: "OTHER", en: "Not found in list? Enter manually...", gu: "યાદીમાં નથી? જાતે નામ લખો...", hi: "सूची में नहीं है? खुद लिखें..." }
     ];
 
-    // Indian States & Major Cities data
     const indiaLocations = {
       "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari", "Mehsana", "Palanpur", "Bhuj", "Morbi", "Surendranagar", "Bharuch", "Valsad", "Vapi", "Veraval", "Porbandar", "Patan", "Godhra", "Botad", "Amreli", "Himmatnagar", "Deesa", "Mandvi", "Anjar", "Other"],
       "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Thane", "Chhatrapati Sambhajinagar (Aurangabad)", "Solapur", "Kolhapur", "Sangli", "Jalgaon", "Amravati", "Nanded", "Akola", "Dhule", "Ahmednagar", "Ichalkaranji", "Latur", "Satara", "Navi Mumbai", "Other"],
@@ -684,10 +748,12 @@
       "Other State / Outside India": ["Other"]
     };
 
+    let submissions = JSON.parse(localStorage.getItem('jain_connect_records') || '[]');
+    updateBadge();
+
     function setLanguage(lang) {
       currentLang = lang;
       
-      // Update toggle buttons styling
       ['en', 'gu', 'hi'].forEach(l => {
         const btn = document.getElementById(`lang-btn-${l}`);
         if (l === lang) {
@@ -699,7 +765,6 @@
 
       const t = translations[lang];
 
-      // Update text elements
       document.getElementById('txt-title').innerText = t.title;
       document.getElementById('txt-subtitle').innerText = t.subtitle;
       document.getElementById('badge-dharam').innerText = t.goal_dharam;
@@ -737,11 +802,6 @@
 
       document.getElementById('submitText').innerText = t.submit;
 
-      document.getElementById('txt-success-title').innerText = t.success_title;
-      document.getElementById('txt-success-subtitle').innerText = t.success_subtitle;
-      document.getElementById('txt-success-msg').innerHTML = t.success_msg;
-      document.getElementById('btn-submit-another').innerText = t.submit_another;
-
       if (document.getElementById('txt-community-heading')) {
         document.getElementById('txt-community-heading').innerText = t.community_heading;
         document.getElementById('txt-community-subheading').innerText = t.community_subheading;
@@ -753,7 +813,6 @@
         document.getElementById('txt-pay-card-scan').innerText = t.pay_card_scan;
       }
 
-      // Re-populate dropdowns with localized strings while preserving selection
       populateSampradayaOptions();
       populateSammajOptions();
       populateStateOptions();
@@ -844,6 +903,30 @@
       }
     }
 
+    function switchTab(tab) {
+      document.getElementById('viewForm').classList.toggle('hidden', tab !== 'form');
+      document.getElementById('viewData').classList.toggle('hidden', tab !== 'data');
+      document.getElementById('viewSettings').classList.toggle('hidden', tab !== 'settings');
+
+      const btnForm = document.getElementById('tabFormBtn');
+      const btnData = document.getElementById('tabDataBtn');
+      const btnSettings = document.getElementById('tabSettingsBtn');
+
+      [btnForm, btnData, btnSettings].forEach(b => {
+        b.className = "px-4 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition";
+      });
+
+      if (tab === 'form') {
+        btnForm.className = "px-4 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition";
+      } else if (tab === 'data') {
+        btnData.className = "px-4 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition flex items-center gap-1.5";
+        renderRecords();
+      } else if (tab === 'settings') {
+        btnSettings.className = "px-4 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition";
+      }
+      lucide.createIcons();
+    }
+
     function handlePhoneInput() {
       validatePhone();
       if (document.getElementById('sameNumber').checked) {
@@ -877,7 +960,6 @@
       }
     }
 
-    // Validation Methods
     function validateName() {
       const el = document.getElementById('fullName');
       const icon = document.getElementById('nameIcon');
@@ -1077,8 +1159,10 @@
       const alertEl = document.getElementById('statusAlert');
 
       if (!okName || !okPhone || !okWhatsApp || !okSampradaya || !okSammaj || !okCustomSammaj || !okState || !okCity || !okCustomCity || !okBusiness) {
-        alertEl.innerText = translations[currentLang].err_all;
+        alertEl.className = "p-4 rounded-xl text-xs sm:text-sm font-semibold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-2";
+        alertEl.innerHTML = `<i data-lucide="alert-triangle" class="w-5 h-5 shrink-0 text-rose-600"></i><span>${translations[currentLang].err_all}</span>`;
         alertEl.classList.remove('hidden');
+        lucide.createIcons();
         return;
       }
 
@@ -1114,23 +1198,75 @@
       spinner.classList.remove('hidden');
       btnText.innerText = translations[currentLang].submitting;
 
+      const googleUrl = document.getElementById('googleUrlInput')?.value.trim() || "https://script.google.com/macros/s/AKfycbx_gKg7VwmgAIAovuZHZTs1hlzZBX6x8XhSkjCVj9OF35ocBAGH-tWwLUNZHyNX0FJYkw/exec";
+      const supabaseUrl = document.getElementById('supabaseUrlInput')?.value.trim();
+      const supabaseKey = document.getElementById('supabaseKeyInput')?.value.trim();
+
+      const endpointsPushed = [];
+
       try {
-        if (GOOGLE_WEBHOOK_URL && !GOOGLE_WEBHOOK_URL.includes("YOUR_GOOGLE_APPS_SCRIPT_URL_HERE")) {
-          await fetch(GOOGLE_WEBHOOK_URL, {
+        if (googleUrl) {
+          await fetch(googleUrl, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(payload)
           });
+          endpointsPushed.push('Google Sheets');
         }
 
-        // Show success screen and hide form
-        document.getElementById('formCard').classList.add('hidden');
-        document.getElementById('successCard').classList.remove('hidden');
-        lucide.createIcons();
+        if (supabaseUrl && supabaseKey) {
+          await fetch(supabaseUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': supabaseKey,
+              'Authorization': `Bearer ${supabaseKey}`
+            },
+            body: JSON.stringify({
+              full_name: payload.fullName,
+              contact_number: payload.number,
+              whatsapp_number: payload.whatsappNumber,
+              sampradaya: payload.sampradaya,
+              sammaj_name: payload.sammajName,
+              state: payload.state,
+              city: payload.city,
+              business_name: payload.businessName,
+              volunteer: payload.volunteer,
+              created_at: payload.timestamp
+            })
+          });
+          endpointsPushed.push('Supabase');
+        }
+
+        submissions.unshift(payload);
+        localStorage.setItem('jain_connect_records', JSON.stringify(submissions));
+        updateBadge();
+
+        document.getElementById('jainForm').reset();
+        ['fullName', 'phone', 'whatsapp', 'businessName'].forEach(id => {
+          const input = document.getElementById(id);
+          input.classList.remove('border-emerald-500', 'bg-emerald-50/10', 'border-rose-400', 'bg-rose-50/20');
+        });
+        ['nameIcon', 'phoneIcon', 'whatsappIcon'].forEach(id => {
+          document.getElementById(id).classList.add('hidden');
+        });
+        document.getElementById('customSammajBox').classList.add('hidden');
+        document.getElementById('customCityBox').classList.add('hidden');
+
+        // Reset volunteer radio buttons
+        document.querySelectorAll('input[name="volunteer"]').forEach(r => r.checked = false);
+        document.getElementById('volunteerNote').classList.add('hidden');
+        document.getElementById('opt-volunteer-yes').classList.remove('border-amber-500', 'bg-amber-500/10', 'text-amber-900');
+        document.getElementById('opt-volunteer-no').classList.remove('border-slate-400', 'bg-slate-100');
+
+        alertEl.className = "p-4 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-2";
+        alertEl.innerHTML = `<i data-lucide="check-check" class="w-5 h-5 shrink-0 text-emerald-600"></i><span>Jai Jinendra! Record verified & connected ${endpointsPushed.length ? `(Saved to ${endpointsPushed.join(', ')})` : '(Saved in session)'}.</span>`;
+        alertEl.classList.remove('hidden');
 
       } catch (err) {
-        alertEl.innerText = "Error transmitting details: " + err.message;
+        alertEl.className = "p-4 rounded-xl text-xs sm:text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200";
+        alertEl.innerText = "Saved locally. Notice from remote endpoint: " + err.message;
         alertEl.classList.remove('hidden');
       } finally {
         btn.disabled = false;
@@ -1140,34 +1276,97 @@
       }
     }
 
-    function resetForNewEntry() {
-      document.getElementById('jainForm').reset();
-      ['fullName', 'phone', 'whatsapp', 'businessName'].forEach(id => {
-        const input = document.getElementById(id);
-        input.classList.remove('border-emerald-500', 'bg-emerald-50/10', 'border-rose-400', 'bg-rose-50/20');
-      });
-      ['nameIcon', 'phoneIcon', 'whatsappIcon'].forEach(id => {
-        document.getElementById(id).classList.add('hidden');
-      });
-      ['sampradayaSelect', 'sammajSelect', 'stateSelect', 'citySelect'].forEach(id => {
-        document.getElementById(id).classList.remove('border-rose-400');
-      });
-      document.getElementById('customSammajBox').classList.add('hidden');
-      document.getElementById('customCityBox').classList.add('hidden');
-      document.getElementById('statusAlert').classList.add('hidden');
+    function renderRecords() {
+      const container = document.getElementById('recordsList');
+      if (submissions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <i data-lucide="users" class="w-10 h-10 mx-auto opacity-40 mb-2"></i>
+            <p class="text-sm">No members registered yet.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
 
-      // Reset Volunteer selection
-      document.querySelectorAll('input[name="volunteer"]').forEach(r => r.checked = false);
-      document.getElementById('volunteerNote').classList.add('hidden');
-      document.getElementById('opt-volunteer-yes').classList.remove('border-amber-500', 'bg-amber-500/10', 'text-amber-900');
-      document.getElementById('opt-volunteer-no').classList.remove('border-slate-400', 'bg-slate-100');
-
-      document.getElementById('successCard').classList.add('hidden');
-      document.getElementById('formCard').classList.remove('hidden');
+      container.innerHTML = submissions.map(item => `
+        <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-slate-900 text-sm">${escapeHtml(item.fullName)}</span>
+              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-800 rounded-full font-bold text-[10px]">${escapeHtml(item.sampradaya || 'N/A')}</span>
+              <span class="px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded-full font-semibold text-[10px]">${escapeHtml(item.sammajName)}</span>
+              ${item.volunteer === 'Yes' ? '<span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 rounded-full font-bold text-[10px]">✨ Volunteer</span>' : ''}
+            </div>
+            <div class="text-slate-600 flex flex-wrap gap-x-4 gap-y-1 pt-0.5">
+              <span>📞 ${escapeHtml(item.number)}</span>
+              <span>💬 WhatsApp: ${escapeHtml(item.whatsappNumber)}</span>
+              <span>📍 ${escapeHtml(item.city)}, ${escapeHtml(item.state)}</span>
+            </div>
+            <div class="text-slate-600 text-[11px] pt-1">
+              <span class="font-semibold text-slate-700">Business / Work:</span> ${escapeHtml(item.businessName || 'N/A')}
+            </div>
+          </div>
+          <div class="text-slate-400 text-[11px] shrink-0 font-mono">
+            ${item.id}
+          </div>
+        </div>
+      `).join('');
       lucide.createIcons();
     }
 
-    // Initialize on page load
+    function clearSubmissions() {
+      if (confirm('Clear all local records?')) {
+        submissions = [];
+        localStorage.removeItem('jain_connect_records');
+        updateBadge();
+        renderRecords();
+      }
+    }
+
+    function updateBadge() {
+      document.getElementById('dataBadge').innerText = submissions.length;
+    }
+
+    function exportCSV() {
+      if (submissions.length === 0) {
+        alert('No data to export.');
+        return;
+      }
+      const headers = ['ID', 'Timestamp', 'Name', 'Number', 'WhatsApp Number', 'Jain Sampradaya', 'Name of Sammaj', 'State', 'City', 'Business Name / Occupation', 'Volunteer for Jinshashan'];
+      const rows = submissions.map(s => [
+        s.id,
+        s.timestamp,
+        `"${s.fullName.replace(/"/g, '""')}"`,
+        `"${s.number.replace(/"/g, '""')}"`,
+        `"${s.whatsappNumber.replace(/"/g, '""')}"`,
+        `"${(s.sampradaya || '').replace(/"/g, '""')}"`,
+        `"${s.sammajName.replace(/"/g, '""')}"`,
+        `"${(s.state || '').replace(/"/g, '""')}"`,
+        `"${(s.city || '').replace(/"/g, '""')}"`,
+        `"${(s.businessName || '').replace(/"/g, '""')}"`,
+        `"${(s.volunteer || 'Not Specified').replace(/"/g, '""')}"`
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `jain_connect_360_${Date.now()}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
     setLanguage('en');
     lucide.createIcons();
   </script>
