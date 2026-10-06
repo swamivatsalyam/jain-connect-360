@@ -1,5 +1,5 @@
 /**
- * GOOGLE APPS SCRIPT FOR: JAIN CONNECT 360 DEGREE
+ * GOOGLE APPS SCRIPT FOR: JAIN CONNECT 360°
  * Subtitle: Connecting Every Jain
  * 
  * Setup Instructions:
@@ -83,5 +83,5 @@ function doPost(e) {
 }
 
 function doGet(e) {
-  return ContentService.createTextOutput("Jain Connect 360 Degree Webhook is active and running.");
+  return ContentService.createTextOutput("Jain Connect 360° Webhook is active and running.");
 }

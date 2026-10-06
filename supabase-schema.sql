@@ -1,4 +1,4 @@
--- SUPABASE SQL SETUP FOR: JAIN CONNECT 360 DEGREE
+-- SUPABASE SQL SETUP FOR: JAIN CONNECT 360°
 -- Subtitle: Connecting Every Jain
 
 -- 1. Create table

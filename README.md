@@ -1,4 +1,4 @@
-# Jain Connect 360 Degree
+# Jain Connect 360°
 > **Subtitle:** *Connecting Every Jain*
 
 A tri-lingual interactive verification portal designed to collect, verify, and synchronize member details across the Jain community.

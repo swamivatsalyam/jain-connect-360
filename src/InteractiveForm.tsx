@@ -60,7 +60,7 @@ export type JainConnectFormValues = z.infer<typeof JainConnectSchema>;
 
 const heroContent = {
   en: {
-    title: 'Jain Connect 360 Degree',
+    title: 'Jain Connect 360°',
     subtitle: 'Connecting Every Jain',
     goals: ['🛡️ Dharam Raksha', '🏛️ Tirth Raksha', '🤝 Swami Vatsalyam'],
     purposeBadge: 'Our Sacred Mission & Purpose',
@@ -70,7 +70,7 @@ const heroContent = {
       'Through this form, in the future, if you ever need to increase the business level of your family, instead of personally benefiting from it, the idea is that your fellow Jain brothers can purchase through you and the money is used in the right place. With this purpose, and in matters related to defending the faith, you can volunteer for Jain Connect 360, which is a platform for protecting the religion.',
   },
   gu: {
-    title: 'જૈન કનેક્ટ 360 ડિગ્રી',
+    title: 'જૈન કનેક્ટ 360°',
     subtitle: 'દરેક જૈનને જોડતો સેતુ',
     goals: ['🛡️ ધર્મ રક્ષા', '🏛️ તીર્થ રક્ષા', '🤝 સ્વામી વાત્સલ્ય'],
     purposeBadge: 'આપણો પાવન સંકલ્પ અને ઉદ્દેશ્ય',
@@ -80,7 +80,7 @@ const heroContent = {
       'આ ફોર્મ દ્વારા ભવિષ્યમાં તમારા પરિવારનો વ્યાપાર-રોજગાર વધારવા માટે, માત્ર અંગત લાભ ખાતર નહીં, પરંતુ સાધર્મિક જૈન ભાઈઓ આપણી પાસેથી જ ખરીદી કરે અને લક્ષ્મીનો સદુપયોગ સાચી જગ્યાએ ધર્મકાર્યમાં થાય તે મુખ્ય વિચાર છે. આ પવિત્ર હેતુ સાથે તથા ધર્મ રક્ષાના કાર્યોમાં આપ જૈન કનેક્ટ ૩૬૦ સાથે જોડાઈને શાસન રક્ષાના આ પ્લેટફોર્મ પર સ્વયંસેવક બની શકો છો.',
   },
   hi: {
-    title: 'जैन कनेक्ट 360 डिग्री',
+    title: 'जैन कनेक्ट 360°',
     subtitle: 'हर जैन को जोड़ने वाला मंच',
     goals: ['🛡️ धर्म रक्षा', '🏛️ तीर्थ रक्षा', '🤝 स्वामी वात्सल्य'],
     purposeBadge: 'हमारा पावन संकल्प और उद्देश्य',
@@ -356,6 +356,34 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             <option value="Khandelwal">Khandelwal</option>
             <option value="Parwar">Parwar</option>
             <option value="Humad">Humad</option>
+            <option value="Jaiswal">Jaiswal</option>
+            <option value="Narsinghpura">Narsinghpura</option>
+            <option value="Sarawagi">Sarawagi</option>
+            <option value="Bhavsar Jain">Bhavsar Jain</option>
+            <option value="Shree Vaav Community">Shree Vaav Community</option>
+            <option value="Shree Kutch Shree Vagad Saat Chovisi Community">Shree Kutch Shree Vagad Saat Chovisi Community</option>
+            <option value="Shree 108 Visa Shrimali Chanasma Community">Shree 108 Visa Shrimali Chanasma Community</option>
+            <option value="Shree Rander Ladva Shrimali Community">Shree Rander Ladva Shrimali Community</option>
+            <option value="Shree Rohi Pargana Community">Shree Rohi Pargana Community</option>
+            <option value="Shree Dhandhar Visa Porwad Community">Shree Dhandhar Visa Porwad Community</option>
+            <option value="Shree Ghoghari Visa Oswal Community">Shree Ghoghari Visa Oswal Community</option>
+            <option value="Shree Dasha Oswal Community">Shree Dasha Oswal Community</option>
+            <option value="Shree Abu Road Oswal Community">Shree Abu Road Oswal Community</option>
+            <option value="Shree Kankrej (Kakareji) Betalisi Community">Shree Kankrej (Kakareji) Betalisi Community</option>
+            <option value="Shree Nutan Sadtrisi Visa Community">Shree Nutan Sadtrisi Visa Community</option>
+            <option value="Shree Siwanchi (Sivanthi) Malani Jain Community">Shree Siwanchi (Sivanthi) Malani Jain Community</option>
+            <option value="Shree Navagam Community">Shree Navagam Community</option>
+            <option value="Shree Sinor Dasha Oswal Community">Shree Sinor Dasha Oswal Community</option>
+            <option value="Shree Baragam Jain Community">Shree Baragam Jain Community</option>
+            <option value="Shree Miyagam Radhanpura Visa Shrimali Community">Shree Miyagam Radhanpura Visa Shrimali Community</option>
+            <option value="Shree Dasha Shrimali Jhalawad Community">Shree Dasha Shrimali Jhalawad Community</option>
+            <option value="Shree Ladva (Laduaa) Shrimali Community">Shree Ladva (Laduaa) Shrimali Community</option>
+            <option value="Shree Ghoghari Visa Shrimali Jain Community">Shree Ghoghari Visa Shrimali Jain Community</option>
+            <option value="Shree Jhalawadi Community">Shree Jhalawadi Community</option>
+            <option value="Shree Tristuti (Tharad) Jain Community">Shree Tristuti (Tharad) Jain Community</option>
+            <option value="Shree Bhabhar Community">Shree Bhabhar Community</option>
+            <option value="Shree Khimat Community">Shree Khimat Community</option>
+            <option value="Shree Dhanera Community">Shree Dhanera Community</option>
             <option value="OTHER">Not found in list? Enter manually...</option>
           </select>
           {errors.sammajSelection && <p className="text-xs text-rose-500 mt-1">{errors.sammajSelection.message}</p>}
