@@ -66,7 +66,7 @@ const heroContent = {
     subtitle: 'Connecting Every Jain',
     goals: ['🛡️ Dharam Raksha', '🏛️ Tirth Raksha', '🤝 Swami Vatsalyam'],
     purposeBadge: 'Our Sacred Mission & Purpose',
-    purposeQ: 'Question: How do I fill out this form?',
+    purposeQ: 'Question: Why should I fill out this form?',
     purposeAPrefix: 'Answer',
     purposeA:
       'Through this form, in the future, if you ever need to increase the business level of your family, instead of personally benefiting from it, the idea is that your fellow Jain brothers can purchase through you and the money is used in the right place. With this purpose, and in matters related to defending the faith, you can volunteer for Jain Connect 360, which is a platform for protecting the religion.',
