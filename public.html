@@ -169,10 +169,10 @@
           <p id="sampradayaError" class="text-xs text-rose-500 mt-1 hidden"></p>
         </div>
 
-        <!-- 4. Name of Sammaj (Searchable Dropdown) -->
+        <!-- 4. Name of Community (Searchable Dropdown) -->
         <div>
           <label for="sammajTriggerBtn" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            <span id="lbl-sammaj">Name of Sammaj</span> <span class="text-rose-500">*</span>
+            <span id="lbl-sammaj">Name of Community</span> <span class="text-rose-500">*</span>
           </label>
           
           <div class="relative" id="sammajComboboxWrapper">
@@ -188,7 +188,7 @@
               <div class="flex items-center gap-2.5 min-w-0 flex-1">
                 <i data-lucide="users" class="w-4 h-4 text-slate-400 shrink-0"></i>
                 <div class="truncate text-slate-400" id="sammajSelectedText">
-                  Select your Sammaj...
+                  Select your Community...
                 </div>
               </div>
               <div class="flex items-center gap-1 shrink-0">
@@ -220,7 +220,7 @@
                   <input 
                     type="text" 
                     id="sammajSearchInput" 
-                    placeholder="Type to search your Samaj (e.g. Vaav, Oswal, Vagad)..." 
+                    placeholder="Type to search your Community (e.g. Vaav, Oswal, Vagad)..." 
                     autocomplete="off"
                     oninput="filterSammajOptions(this.value)"
                     class="w-full pl-9 pr-8 py-2 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition shadow-inner"
@@ -251,10 +251,10 @@
           <p id="sammajSelectError" class="text-xs text-rose-500 mt-1 hidden"></p>
         </div>
 
-        <!-- Custom Sammaj Name Entry (Shows if user chooses Other/Not Found) -->
+        <!-- Custom Community Name Entry (Shows if user chooses Other/Not Found) -->
         <div id="customSammajBox" class="hidden p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-1">
           <label class="block text-xs font-bold uppercase tracking-wider text-amber-800">
-            <span id="lbl-custom-sammaj">Enter Your Sammaj Name</span> <span class="text-rose-500">*</span>
+            <span id="lbl-custom-sammaj">Enter Your Community Name</span> <span class="text-rose-500">*</span>
           </label>
           <input 
             type="text" 
@@ -519,12 +519,12 @@
         same: "Same as Number",
         sampradaya: "Jain Sampradaya / Panth",
         sampradaya_select: "Select Sampradaya / Panth...",
-        sammaj: "Name of Sammaj",
-        sammaj_select: "Select your Sammaj...",
-        sammaj_search_placeholder: "Type to search your Samaj (e.g. Vaav, Oswal, Vagad)...",
-        no_sammaj_found: "No Samaj found matching your search.",
+        sammaj: "Name of Community",
+        sammaj_select: "Select your Community...",
+        sammaj_search_placeholder: "Type to search your Community (e.g. Vaav, Oswal, Vagad)...",
+        no_sammaj_found: "No Community found matching your search.",
         sammaj_other: "Not found in list? Enter manually...",
-        custom_sammaj: "Enter Your Sammaj Name",
+        custom_sammaj: "Enter Your Community Name",
         state: "State",
         state_select: "Select State...",
         city: "City / Town",
@@ -539,8 +539,8 @@
         err_phone: "Please enter a valid 10-digit mobile number.",
         err_wa: "Please enter a valid 10-digit WhatsApp number.",
         err_sampradaya: "Please select your Jain Sampradaya / Panth.",
-        err_sammaj: "Please select your Sammaj or type it manually.",
-        err_custom_sammaj: "Please enter your Sammaj name.",
+        err_sammaj: "Please select your Community or type it manually.",
+        err_custom_sammaj: "Please enter your Community name.",
         err_state: "Please select your state.",
         err_city: "Please select your city or enter manually.",
         err_custom_city: "Please enter your city / village name.",
@@ -582,12 +582,12 @@
         same: "નંબર સમાન જ છે",
         sampradaya: "જૈન સંપ્રદાય / પંથ",
         sampradaya_select: "સંપ્રદાય / પંથ પસંદ કરો...",
-        sammaj: "સમાજનું નામ",
-        sammaj_select: "તમારો સમાજ પસંદ કરો...",
-        sammaj_search_placeholder: "સમાજ શોધો અથવા પસંદ કરો (દા.ત. વાવ, ઓસવાલ, વાગડ)...",
-        no_sammaj_found: "કોઈ સમાજ મળ્યો નથી.",
+        sammaj: "સમુદાયનું નામ",
+        sammaj_select: "તમારો સમુદાય પસંદ કરો...",
+        sammaj_search_placeholder: "સમુદાય શોધો અથવા પસંદ કરો (દા.ત. વાવ, ઓસવાલ, વાગડ)...",
+        no_sammaj_found: "કોઈ સમુદાય મળ્યો નથી.",
         sammaj_other: "યાદીમાં નથી? જાતે નામ લખો...",
-        custom_sammaj: "તમારા સમાજનું નામ લખો",
+        custom_sammaj: "તમારા સમુદાયનું નામ લખો",
         state: "રાજ્ય",
         state_select: "રાજ્ય પસંદ કરો...",
         city: "શહેર / ગામ",
@@ -602,8 +602,8 @@
         err_phone: "કૃપા કરીને માન્ય 10 અંકનો મોબાઈલ નંબર દાખલ કરો.",
         err_wa: "કૃપા કરીને માન્ય 10 અંકનો વોટ્સએપ નંબર દાખલ કરો.",
         err_sampradaya: "કૃપા કરીને તમારો જૈન સંપ્રદાય / પંથ પસંદ કરો.",
-        err_sammaj: "કૃપા કરીને તમારો સમાજ પસંદ કરો અથવા જાતે લખો.",
-        err_custom_sammaj: "કૃપા કરીને તમારા સમાજનું નામ લખો.",
+        err_sammaj: "કૃપા કરીને તમારો સમુદાય પસંદ કરો અથવા જાતે લખો.",
+        err_custom_sammaj: "કૃપા કરીને તમારા સમુદાયનું નામ લખો.",
         err_state: "કૃપા કરીને તમારું રાજ્ય પસંદ કરો.",
         err_city: "કૃપા કરીને તમારું શહેર પસંદ કરો અથવા જાતે લખો.",
         err_custom_city: "કૃપા કરીને શહેર અથવા ગામનું નામ લખો.",
@@ -645,12 +645,12 @@
         same: "नंबर समान ही है",
         sampradaya: "जैन सम्प्रदाय / पंथ",
         sampradaya_select: "सम्प्रदाय / पंथ चुनें...",
-        sammaj: "समाज का नाम",
-        sammaj_select: "अपना समाज चुनें...",
-        sammaj_search_placeholder: "समाज खोजें या चुनें (उदा. वाव, ओसवाल, वागड़)...",
-        no_sammaj_found: "कोई समाज नहीं मिला.",
+        sammaj: "समुदाय का नाम",
+        sammaj_select: "अपना समुदाय चुनें...",
+        sammaj_search_placeholder: "समुदाय खोजें या चुनें (उदा. वाव, ओसवाल, वागड़)...",
+        no_sammaj_found: "कोई समुदाय नहीं मिला.",
         sammaj_other: "सूची में नहीं है? खुद लिखें...",
-        custom_sammaj: "अपने समाज का नाम लिखें",
+        custom_sammaj: "अपने समुदाय का नाम लिखें",
         state: "राज्य",
         state_select: "राज्य चुनें...",
         city: "शहर / कस्बा",
@@ -665,8 +665,8 @@
         err_phone: "कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।",
         err_wa: "कृपया सही 10 अंकों का व्हाट्सएप नंबर दर्ज करें।",
         err_sampradaya: "कृपया अपना जैन सम्प्रदाय / पंथ चुनें।",
-        err_sammaj: "कृपया अपना समाज चुनें या खुद लिखें।",
-        err_custom_sammaj: "कृपया अपने समाज का नाम लिखें।",
+        err_sammaj: "कृपया अपना समुदाय चुनें या खुद लिखें.",
+        err_custom_sammaj: "कृपया अपने समुदाय का नाम लिखें.",
         err_state: "कृपया अपना राज्य चुनें।",
         err_city: "कृपया अपना शहर चुनें या खुद लिखें।",
         err_custom_city: "कृपया शहर या गाँव का नाम लिखें।",
@@ -711,6 +711,7 @@
       { id: "Shree Rander Ladva Shrimali Community", en: "Shree Rander Ladva Shrimali Community", gu: "શ્રી રાંદેર લાડવા શ્રીમાળી સમાજ", hi: "श्री रांदेर लाडवा श्रीमाली समाज" },
       { id: "Shree Rohi Pargana Community", en: "Shree Rohi Pargana Community", gu: "શ્રી રોહી પરગણા સમાજ", hi: "श्री रोही परगना समाज" },
       { id: "Shree Dhandhar Visa Porwad Community", en: "Shree Dhandhar Visa Porwad Community", gu: "શ્રી ધાંધર વીસા પોરવાડ સમાજ", hi: "श्री धांधर वीसा पोरवाड़ समाज" },
+      { id: "Shree Dhandhar Visa Oswal Community", en: "Shree Dhandhar Visa Oswal Community", gu: "શ્રી ધાંધર વીસા ઓસવાલ સમાજ", hi: "श्री धांधर वीसा ओसवाल समाज" },
       { id: "Shree Ghoghari Visa Oswal Community", en: "Shree Ghoghari Visa Oswal Community", gu: "શ્રી ઘોઘારી વીસા ઓસવાલ સમાજ", hi: "श्री घोघारी वीसा ओसवाल समाज" },
       { id: "Shree Dasha Oswal Community", en: "Shree Dasha Oswal Community", gu: "શ્રી દશા ઓસવાલ સમાજ", hi: "श्री दशा ओसवाल समाज" },
       { id: "Shree Abu Road Oswal Community", en: "Shree Abu Road Oswal Community", gu: "શ્રી આબુ રોડ ઓસવાલ સમાજ", hi: "श्री आबू रोड ओसवाल समाज" },

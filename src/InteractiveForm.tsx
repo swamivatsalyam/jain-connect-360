@@ -368,22 +368,23 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
           {errors.sampradaya && <p className="text-xs text-rose-500 mt-1">{errors.sampradaya.message}</p>}
         </div>
 
-        {/* Sammaj */}
+        {/* Community */}
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-            Name of Sammaj *
+            Name of Community *
           </label>
           <select
             {...register('sammajSelection')}
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
           >
-            <option value="">Select your Sammaj...</option>
+            <option value="">Select your Community...</option>
             <option value="Shree Vaav Community">Shree Vaav Community</option>
             <option value="Shree Kutch Shree Vagad Saat Chovisi Community">Shree Kutch Shree Vagad Saat Chovisi Community</option>
             <option value="Shree 108 Visa Shrimali Chanasma Community">Shree 108 Visa Shrimali Chanasma Community</option>
             <option value="Shree Rander Ladva Shrimali Community">Shree Rander Ladva Shrimali Community</option>
             <option value="Shree Rohi Pargana Community">Shree Rohi Pargana Community</option>
             <option value="Shree Dhandhar Visa Porwad Community">Shree Dhandhar Visa Porwad Community</option>
+            <option value="Shree Dhandhar Visa Oswal Community">Shree Dhandhar Visa Oswal Community</option>
             <option value="Shree Ghoghari Visa Oswal Community">Shree Ghoghari Visa Oswal Community</option>
             <option value="Shree Dasha Oswal Community">Shree Dasha Oswal Community</option>
             <option value="Shree Abu Road Oswal Community">Shree Abu Road Oswal Community</option>
@@ -407,19 +408,19 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
           {errors.sammajSelection && <p className="text-xs text-rose-500 mt-1">{errors.sammajSelection.message}</p>}
         </div>
 
-        {/* Custom Sammaj */}
+        {/* Custom Community */}
         {selectedSammaj === 'OTHER' && (
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-amber-800 mb-1">
-              Enter Your Sammaj Name *
-            </label>
-            <input
-              {...register('customSammaj')}
-              placeholder="Type your Sammaj name..."
-              className="w-full px-4 py-2.5 rounded-xl border border-amber-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
-            />
-            {errors.customSammaj && <p className="text-xs text-rose-500 mt-1">{errors.customSammaj.message}</p>}
-          </div>
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-amber-800 mb-1">
+                Enter Your Community Name *
+              </label>
+              <input
+                {...register('customSammaj')}
+                placeholder="Type your Community name..."
+                className="w-full px-4 py-2.5 rounded-xl border border-amber-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+              />
+              {errors.customSammaj && <p className="text-xs text-rose-500 mt-1">{errors.customSammaj.message}</p>}
+            </div>
         )}
 
         {/* State & City */}
