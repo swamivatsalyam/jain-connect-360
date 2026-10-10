@@ -384,6 +384,7 @@ export const JainConnectForm: React.FC<JainConnectFormProps> = ({
             <option value="Shree Rander Ladva Shrimali Community">Shree Rander Ladva Shrimali Community</option>
             <option value="Shree Rohi Pargana Community">Shree Rohi Pargana Community</option>
             <option value="Shree Dhandhar Visa Porwad Community">Shree Dhandhar Visa Porwad Community</option>
+            <option value="Shree Visa Porwad Community">Shree Visa Porwad Community</option>
             <option value="Shree Dhandhar Visa Oswal Community">Shree Dhandhar Visa Oswal Community</option>
             <option value="Shree Ghoghari Visa Oswal Community">Shree Ghoghari Visa Oswal Community</option>
             <option value="Shree Dasha Oswal Community">Shree Dasha Oswal Community</option>
